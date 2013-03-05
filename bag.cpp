@@ -18,12 +18,8 @@ public:
 	/**
 	*	Initalizes the Bag
 	*/
-	void create() {
-		lengthOfArray = 16;
-		bagArray = new int[lengthOfArray];
-		counter = -1;
-		bagSize = 0;
-	}
+	VertexBag(); //Constructor
+
 
 	/**
 	*	Returns the number of vertices in the bag
@@ -46,17 +42,9 @@ public:
 	}
 
 
-	void put(int vertex) {
-		if (! exists(vertex)) {	
-			bagArray[++counter] = vertex;
-			bagSize++;
-		}
-	}
+	void put(int vertex);
 
-	int get() {
-		bagSize--;
-		return bagArray[counter--];
-	}
+	int get(); 
 
 	void join(VertexBag otherBag) {
 		while (otherBag.size() != 0) {
@@ -79,3 +67,20 @@ public:
 
 	}
 };
+
+VertexBag::VertexBag() {
+	lengthOfArray = 16
+	bagArray = new int[lengthOfArray];
+	counter = -1;
+	bagSize = 0;
+}
+void VertexBag::put(int vertex) {
+	if (! exists(vertex)) {	
+		bagArray[++counter] = vertex;
+		bagSize++;
+	}
+}
+int VertexBag::get() {
+	bagSize--;
+	return bagArray[counter--];
+}
