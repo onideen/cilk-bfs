@@ -20,7 +20,7 @@ public:
 	*/
 	void create() {
 		lengthOfArray = 16;
-		bagArray = malloc(sizeof(int)*lengthOfArray);
+		bagArray = new int[lengthOfArray];
 		counter = -1;
 		size = 0;
 	}
@@ -51,6 +51,16 @@ public:
 	}
 
 	void split(int numberOfBags){
+
+			VertexBag bags[] = new VertexBag[numberOfBags];
+			int numberInEachBag = (int)ceil(size/numberOfBags);
+
+			for (int i = 0; i < numberOfBags; i++) {
+				for (int j = 0; j < numberInEachBag && !isEmpty(); j++){
+					bags[i].add(get());
+				}
+			}		
+
 
 	}
 
