@@ -101,6 +101,7 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp,
 
   int *queue;
 
+  levelsize = *levelsizep = (int *) calloc(G->nv, sizeof(int));
   level = *levelp = (int *) calloc(G->nv, sizeof(int));
   parent = *parentp = (int *) calloc(G->nv, sizeof(int));
   
@@ -112,11 +113,13 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp,
   // assign the starting vertex level 0 and put it on the queue to explore
   thislevel = 0;
   level[s] = 0;
+  levelsize[0] = 1;
   readBag->put(s);
 
 
   // loop over levels, then over vertices at this level, then over neighbors
   while (! readBag->isEmpty()) {
+    levelsize[thislevel+1] = 0;
     while (! readBag->isEmpty()) {
       v = readBag->get();       // v is the current vertex to explore from
       for (e = G->firstnbr[v]; e < G->firstnbr[v+1]; e++) {
@@ -124,6 +127,7 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp,
         if (level[w] == -1) {   // w has not already been reached
           parent[w] = v;
           level[w] = thislevel+1;
+          levelsize[thislevel+1]++;
           writeBag->put(w);    // put w on queue to explore
         }
       }
