@@ -36,7 +36,19 @@ public:
 		}
 		return false;
 	}
-	
+
+	void merge(VertexBag bag){
+		int sortedArray = new int[this.bagSize + bag.bagSize];
+		
+		for (int i = 0; i < this.bagSize; ++i){
+			if(this.get()>bag.get()){
+				sortedArray[2*i] = this
+			}
+		}
+		
+
+	}
+
 	bool isEmpty(){
 		return size() == 0;
 	}
@@ -69,7 +81,7 @@ public:
 };
 
 VertexBag::VertexBag() {
-	lengthOfArray = 16
+	lengthOfArray = 16;
 	bagArray = new int[lengthOfArray];
 	counter = -1;
 	bagSize = 0;
