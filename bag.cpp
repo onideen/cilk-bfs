@@ -8,7 +8,7 @@ class VertexBag {
 	int bagSize;
 	int lengthOfArray;
 	int* bagArray;
-	
+
 	/* Where the last vertex is located */
 	int counter;
 
@@ -46,6 +46,10 @@ public:
 
 	int get(); 
 
+	int getElement(int i);
+
+	void setElement(int i, int value);
+
 	void join(VertexBag otherBag) {
 		while (otherBag.size() != 0) {
 			put(otherBag.get());
@@ -75,12 +79,33 @@ VertexBag::VertexBag() {
 	bagSize = 0;
 }
 void VertexBag::put(int vertex) {
-	if (! exists(vertex)) {	
-		bagArray[++counter] = vertex;
-		bagSize++;
+	
+	if (size() == 0){
+		setElement(0, vertex);
+	}
+	for (int i = 0; i < size(); i++) {
+		if (vertex < getElement(i)){
+			int prev = getElement(i);
+			setElement(i, vertex);
+			bagSize++;
+			for(int j = i; j < size(); j++) {
+				int tmp = getElement(j);
+				setElement(j, prev);
+				prev = tmp;
+			}
+			break;
+		}
 	}
 }
 int VertexBag::get() {
 	bagSize--;
-	return bagArray[counter--];
+	return bagArray[bagSize];
+}
+
+int VertexBag::getElement(int i) {
+	return bagArray[i];
+}
+
+void VertexBag::setElement(int i, int value) {
+	bagArray[i] = value;
 }
