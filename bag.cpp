@@ -80,22 +80,26 @@ VertexBag::VertexBag() {
 }
 void VertexBag::put(int vertex) {
 	
+	bagSize++;
 	if (size() == 0){
 		setElement(0, vertex);
+		return;
 	}
 	for (int i = 0; i < size(); i++) {
 		if (vertex < getElement(i)){
 			int prev = getElement(i);
 			setElement(i, vertex);
-			bagSize++;
-			for(int j = i; j < size(); j++) {
+			for(int j = i+1; j < size(); j++) {
 				int tmp = getElement(j);
 				setElement(j, prev);
 				prev = tmp;
 			}
-			break;
+			return;
 		}
 	}
+
+	setElement(size()-1, vertex);
+
 }
 int VertexBag::get() {
 	bagSize--;
