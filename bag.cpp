@@ -160,27 +160,44 @@ VertexBag::VertexBag() {
 	bagSize = 0;
 }
 void VertexBag::put(int vertex) {
-	
+	int index;
+	int min = 0, max = bagSize-1;
+
 	bagSize++;
 	if (size() == 0){
 		setElement(0, vertex);
 		return;
+	}else if(vertex > bagArray[bagSize-2]){
+		setElement(bagSize-1,vertex);
+		return;
 	}
-	for (int i = 0; i < size(); i++) {
-		if (vertex < getElement(i)){
-			int prev = getElement(i);
-			setElement(i, vertex);
-			for(int j = i+1; j < size(); j++) {
-				int tmp = getElement(j);
-				setElement(j, prev);
-				prev = tmp;
-			}
-			return;
+	
+	while(max > min){
+		index = ceil((max + min)/2);
+	
+		if(vertex > bagArray[index]){
+			min = index + 1;
+		}else if(vertex < bagArray[index]){
+			max = index -1;
+		}else{
+			//Number is in bag, sould not happen!
 		}
 	}
 
-	setElement(size()-1, vertex);
+	if (min>max)	{
+		index = min;
+	}if(min=max){
+		index = min+1;
+	}
 
+	int prev = getElement(index);
+	setElement(index, vertex);
+	for(int j = index+1; j < size(); j++) {
+		int tmp = getElement(j);
+		setElement(j, prev);
+		prev = tmp;
+	}
+	return;
 }
 int VertexBag::get() {
 	if(bagSize != 0){
