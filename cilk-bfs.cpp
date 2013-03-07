@@ -120,23 +120,32 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp,
   // loop over levels, then over vertices at this level, then over neighbors
   while (! readBag->isEmpty()) {
     levelsize[thislevel+1] = 0;
-    while (! readBag->isEmpty()) {
-      v = readBag->get();       // v is the current vertex to explore from
-      for (e = G->firstnbr[v]; e < G->firstnbr[v+1]; e++) {
-        w = G->nbr[e];          // w is the current neighbor of v
-        if (level[w] == -1) {   // w has not already been reached
-          parent[w] = v;
-          level[w] = thislevel+1;
-          levelsize[thislevel+1]++;
-          writeBag->put(w);    // put w on queue to explore
+    
+    readBag->printBag();    
+    VertexBag* readBags = readBag->split(2);
+    VertexBag* writeBags = new VertexBag[2];
+
+    for (int i = 0; i < 2; i++){
+      readBags[i].printBag();
+      while (! readBags[i].isEmpty()) {
+        v = readBags[i].get();       // v is the current vertex to explore from
+        for (e = G->firstnbr[v]; e < G->firstnbr[v+1]; e++) {
+          w = G->nbr[e];          // w is the current neighbor of v
+          if (level[w] == -1) {   // w has not already been reached
+            parent[w] = v;
+            level[w] = thislevel+1;
+            writeBags[i].put(w);    // put w on queue to explore
+          }
         }
       }
     }
     
-    VertexBag *tmp = writeBag;
-    writeBag = readBag;
-    readBag = tmp;
+    writeBags[0].mergeBags(writeBags[1]);
+    writeBags[0].printBag();
 
+    readBag = &writeBags[0];
+
+    levelsize[thislevel+1] = readBag->size();
     thislevel = thislevel+1;
   }
   *nlevelsp = thislevel;
