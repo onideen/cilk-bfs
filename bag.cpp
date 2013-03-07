@@ -1,5 +1,7 @@
 #include <iostream>
 #include "math.h"
+#include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -37,52 +39,20 @@ public:
 		return false;
 	}
 
-	void mergeBags(VertexBag bag){
-		int* sortedArray = new int[bagSize + bag.bagSize];
-		int* left = new int[bagSize];
-		int* right = new int[bag.bagSize];
-
-		//for sorterte lister
-		for (int i = 0; i < bagSize; ++i){
-			left[i] = get();
-		}
-
-		for (int i = 0; i < bag.bagSize; ++i){
-			right[i] = bag.get();
-		}
-
-		sortedArray = mergeLists(left,right,bagSize,bag.bagSize);
-		
-		//for usorterte lister, har sannsynligvis bug
-		/*
-		while(!this.isEmpty()){
-			sortedArray = get();
-		}
- 		while(!bag.isEmpty()){
-			sortedArray = bag.get();
-		}
-
-		sortedArray = merge_sort(sortedArray,bagSize + bag.bagSize);
-		
-		*/
-		
-		for (int i = 0; i < bagSize + bag.bagSize; ++i){
-			put(sortedArray[i]);
-		}
-	}
-
+	void mergeBags(VertexBag bag);
 	int* mergeLists(int *a, int *b, int sizeA, int sizeB){
 		int* result = new int[sizeA+sizeB];
-		int l =0 ,r =0;
+		int l =0 ,r =0, size;
 		
-		for (int i = 0; i < sizeA + sizeB; ++i){
+		size = sizeA + sizeB;
+		for (int i = 0; i < size; ++i){
 			if(a[l] == b[r] && l < sizeA && r < sizeB){
 				result[i] = a[l++];
 				r++;
-				sizeB--;
+				size--;
 			}else if(a[l] < b[r] && l < sizeA && r < sizeB){
 				result[i] = a[l++];
-			}else if(b[r] < a[l]  && l < sizeA && r < sizeB){
+			}else if(a[l] > b[r]  && l < sizeA && r < sizeB){
 				result[i] = b[r++];
 			}else if(l >= sizeA){
 				result[i] = b[r++];
@@ -90,7 +60,7 @@ public:
 				result[i] = a[l++];
 			}
 		}
-
+		bagSize = size;
 		return result;
 	}
 
@@ -137,20 +107,9 @@ public:
 		}
 	}
 
-	VertexBag* split(int numberOfBags){
+	VertexBag* split(int numberOfBags);
 
-		VertexBag *bags;
-		bags = new VertexBag[numberOfBags];
-		int numberInEachBag = (int)ceil(size()/numberOfBags);
-
-		for (int i = 0; i < numberOfBags; i++) {
-			for (int j = 0; j < numberInEachBag && !isEmpty(); j++){
-				bags[i].put(get());
-			}
-		}
-		return bags;
-
-	}
+	void printBag();
 };
 
 VertexBag::VertexBag() {
@@ -159,6 +118,16 @@ VertexBag::VertexBag() {
 	counter = -1;
 	bagSize = 0;
 }
+
+void VertexBag::printBag(){
+	string str("Bag: ");
+	cout << "Bag: ";
+	for (int i = 0; i <size() && i < 10; i++) {
+		cout << getElement(i) << ", ";
+	}
+	cout << "\n";
+}
+
 void VertexBag::put(int vertex) {
 	int index;
 	int min = 0, max = bagSize-1;
@@ -213,4 +182,36 @@ int VertexBag::getElement(int i) {
 
 void VertexBag::setElement(int i, int value) {
 	bagArray[i] = value;
+}
+
+void VertexBag::mergeBags(VertexBag bag){
+	int* left = new int[bagSize];
+	int* right = new int[bag.size()];
+
+	//for sorterte lister
+	for (int i = 0; i < bagSize; ++i){
+		left[i] = getElement(i);
+	}
+
+	for (int i = 0; i < bag.size(); ++i){
+		right[i] = bag.getElement(i);
+	}
+
+	bagArray = mergeLists(left,right,bagSize,bag.size());
+
+}
+
+VertexBag* VertexBag::split(int numberOfBags){
+
+	VertexBag *bags;
+	bags = new VertexBag[numberOfBags];
+	int numberInEachBag = (int)ceil((double)size()/numberOfBags);
+
+	for (int i = 0; i < numberOfBags; i++) {
+		for (int j = 0; j < numberInEachBag && i*numberInEachBag+j < size(); j++){
+			bags[i].put(getElement(i*numberInEachBag + j));
+		}
+	}
+	return bags;
+
 }
