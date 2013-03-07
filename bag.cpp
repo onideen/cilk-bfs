@@ -37,17 +37,86 @@ public:
 		return false;
 	}
 
-	void merge(VertexBag bag){
-		int sortedArray = new int[this.bagSize + bag.bagSize];
+	void mergeBags(VertexBag bag){
+		int* sortedArray = new int[bagSize + bag.bagSize];
+		int* left = new int[bagSize];
+		int* right = new int[bag.bagSize];
+
+		//for sorterte lister
+		for (int i = 0; i < bagSize; ++i){
+			left[i] = get();
+		}
+
+		for (int i = 0; i < bag.bagSize; ++i){
+			right[i] = bag.get();
+		}
+
+		sortedArray = mergeLists(left,right,bagSize,bag.bagSize);
 		
-		for (int i = 0; i < this.bagSize; ++i){
-			if(this.get()>bag.get()){
-				sortedArray[2*i] = this
+		//for usorterte lister, har sannsynligvis bug
+		/*
+		while(!this.isEmpty()){
+			sortedArray = get();
+		}
+ 		while(!bag.isEmpty()){
+			sortedArray = bag.get();
+		}
+
+		sortedArray = merge_sort(sortedArray,bagSize + bag.bagSize);
+		
+		*/
+		
+		for (int i = 0; i < bagSize + bag.bagSize; ++i){
+			put(sortedArray[i]);
+		}
+	}
+
+	int* mergeLists(int *a, int *b, int sizeA, int sizeB){
+		int* result = new int[sizeA+sizeB];
+		int l =0 ,r =0;
+		
+		for (int i = 0; i < sizeA + sizeB; ++i){
+			if(a[l] == b[r] && l < sizeA && r < sizeB){
+				result[i] = a[l++];
+				r++;
+				sizeB--;
+			}else if(a[l] < b[r] && l < sizeA && r < sizeB){
+				result[i] = a[l++];
+			}else if(b[r] < a[l]  && l < sizeA && r < sizeB){
+				result[i] = b[r++];
+			}else if(l >= sizeA){
+				result[i] = b[r++];
+			}else if(r >= sizeB){
+				result[i] = a[l++];
 			}
 		}
-		
+
+		return result;
+	}
+
+	//Sannsynligvis bug med size hvis det er duplicates
+	int* merge_sort(int *list, int size){
+		int middle = ceil(size/2);
+		int* left = new int[(int)ceil(size/2)];
+		int* right = new int[(int)floor(size/2)];
+
+		if(size <=1){
+			return list;
+		}
+
+		for (int i = 0; i < size; ++i){
+			if(i> ceil(size/2)){
+				left[i] = list[i];
+			}else{
+				right[i-(int)ceil(size/2)] = list[i];
+			}
+		}
+		left = merge_sort(left,ceil(size/2));
+		right = merge_sort(right,floor(size/2));
+		return mergeLists(left,right,ceil(size/2),floor(size/2));
 
 	}
+
 
 	bool isEmpty(){
 		return size() == 0;
@@ -110,8 +179,11 @@ void VertexBag::put(int vertex) {
 	}
 }
 int VertexBag::get() {
-	bagSize--;
-	return bagArray[bagSize];
+	if(bagSize != 0){
+		return bagArray[--bagSize];
+	}else{
+		return -1;
+	}
 }
 
 int VertexBag::getElement(int i) {
