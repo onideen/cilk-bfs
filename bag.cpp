@@ -129,7 +129,7 @@ void VertexBag::printBag(){
 }
 
 void VertexBag::put(int vertex) {
-	int index;
+	int index=0;
 	int min = 0, max = bagSize-1;
 
 	bagSize++;
@@ -147,6 +147,7 @@ void VertexBag::put(int vertex) {
 		if(vertex > bagArray[index]){
 			min = index + 1;
 		}else if(vertex < bagArray[index]){
+			printf("%i < %i\n",vertex, bagArray[index] );		
 			max = index -1;
 		}else{
 			//Number is in bag, sould not happen!
@@ -155,7 +156,9 @@ void VertexBag::put(int vertex) {
 
 	if (min>max)	{
 		index = min;
-	}if(min=max){
+	}if(min==max && vertex < bagArray[min]){
+		index = min;
+	}else if(min==max){
 		index = min+1;
 	}
 
