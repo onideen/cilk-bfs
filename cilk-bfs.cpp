@@ -10,6 +10,9 @@
 #include <string.h>
 #include <math.h>
 
+const int NTHREADS = 1;
+
+
 typedef struct graphstruct { // A graph in compressed-adjacency-list (CSR) form
   int nv;            // number of vertices
   int ne;            // number of edges
@@ -124,14 +127,14 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp,
     readBag->printBag();    
     printf("-1-\n");
 
-    VertexBag* readBags = readBag->split(2);
+    VertexBag* readBags = readBag->split(NTHREADS);
     printf("-2-\n");
 
-    VertexBag* writeBags = new VertexBag[2];
+    VertexBag* writeBags = new VertexBag[NTHREADS];
 
     printf("-3-\n");
 
-    for (int i = 0; i < 2; i++){
+    for (int i = 0; i < NTHREADS; i++){
       readBags[i].printBag();
 
       while (! readBags[i].isEmpty()) {

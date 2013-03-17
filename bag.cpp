@@ -217,6 +217,7 @@ VertexBag* VertexBag::split(int numberOfBags){
 	VertexBag *bags;
 	bags = new VertexBag[numberOfBags];
 	int numberInEachBag = (int)ceil((double)size()/numberOfBags);
+/*
 	for (int i = 0; i < numberOfBags; i++) {
 
 		// lag settere for bagArray og bagSize
@@ -226,17 +227,16 @@ VertexBag* VertexBag::split(int numberOfBags){
 			bags[i].bagSize++;
 		}
 	}
-	/*
-	printf("Starting for loop\n");
+*/
+
 	for (int i = 0; i < numberOfBags; i++) {
-		printf("Starting inner for loop\n");
-		
 		for (int j = 0; j < numberInEachBag && i*numberInEachBag+j < size(); j++){
-			if(j>600) printf("J = %i\n", j);
 			bags[i].put(getElement(i*numberInEachBag + j));
 		}
 	}
-	*/
+	return bags;
+
+
 	printf("split done\n");
 	return bags;
 
