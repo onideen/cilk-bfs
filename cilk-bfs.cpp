@@ -93,6 +93,28 @@ void print_CSR_graph (graph *G) {
 }
 
 
+void splitAndMergeBag(VertexBag *bag, int start, int end ){
+
+  printf ("Start: %d, End: %d\n", start, end);
+  if ((end - start) > 10) {
+    int mid = (end + start) / 2;
+    cilk_spawn splitAndMergeBag(bag, start, mid);
+    cilk_spawn splitAndMergeBag(bag, mid+1, end);
+    cilk_sync;
+  }
+  else {
+    printf("Bag: ");
+    for (int i = 0; i <= end-start; i++) {
+      printf("%d, ", bag->getElement(start+i));
+    }
+    printf("\n");
+    return;
+  }
+
+}
+
+
+
 void bfs (int s, graph *G, int **levelp, int *nlevelsp, 
          int **levelsizep, int **parentp) {
   int *level, *levelsize, *parent;
@@ -116,13 +138,22 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp,
   thislevel = 0;
   level[s] = 0;
   levelsize[0] = 1;
-  readBag->put(s);
+//  readBag->put(s);
 
+
+for (int i = 0; i < 80; i++){
+  readBag->put(i);
+}
 
   // loop over levels, then over vertices at this level, then over neighbors
   while (! readBag->isEmpty()) {
     levelsize[thislevel+1] = 0;
     
+
+    cilk_spawn splitAndMergeBag(readBag, 0, readBag->size() - 1);
+    cilk_sync;
+    exit(0);
+/*
     readBag->printBag();    
     printf("-1-\n");
 
@@ -156,6 +187,7 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp,
     for (int i = 1; i < NTHREADS; i++) {
       writeBags[0].mergeBags(writeBags[i]);
     }
+
     printf("Bag now has %i element(s) \n", writeBags[0].size());
     writeBags[0].printBag();
     readBag = &writeBags[0];
@@ -163,7 +195,7 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp,
     levelsize[thislevel+1] = readBag->size();
 
     thislevel = thislevel+1;
-
+*/
   }
   *nlevelsp = thislevel;
 }

@@ -14,3 +14,23 @@ our bags supports
 ´get()´ gets the next vertex 
 ´join()´ joins two bags and eliminats duplictes  
 ´split()´ splits the bag into multiple smaller bags  
+
+
+
+Problems
+=========
+
+  * Bags with more than 3500 elements
+
+
+
+
+Future
+======
+  * Bags as heaps
+  * Figure out how to alloc 3500 elements
+
+
+
+
+
