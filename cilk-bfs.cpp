@@ -74,9 +74,9 @@ graph * graph_from_edge_list (int *tail, int* head, int nedges) {
   return G;
 }
 
-void walkNeighbourNodes(int v, VertexBag writeBag, int *level, int *parrent){
-  int w;
-
+void walkNeighbourNodes(int v, VertexBag *writeBag, int *level, int *parent, int thislevel, graph *G){
+  int w, e;
+  //VertexBag writeBag = (VertexBag )
   
   for (e = G->firstnbr[v]; e < G->firstnbr[v+1]; e++) {
     w = G->nbr[e];          // w is the current neighbor of v
@@ -84,7 +84,7 @@ void walkNeighbourNodes(int v, VertexBag writeBag, int *level, int *parrent){
     if (level[w] == -1) {   // w has not already been reached
       parent[w] = v;
       level[w] = thislevel+1;
-      writeBag.put(w);    // put w on queue to explore
+      writeBag->put(w);    // put w on queue to explore   
     }
   }
   
@@ -150,10 +150,10 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
     cilk_for (int i = 0; i < NTHREADS; i++){
       int v, w, e;
       readBags[i].printBag();
-      while (! readBag.isEmpty()) {
-        v = readBag.get();       // v is the current vertex to explore from
+      while (! readBags[i].isEmpty()) {
+        v = readBags[i].get();       // v is the current vertex to explore from
 
-        walkNeighbourNodes(v, writeBags[i]);
+        walkNeighbourNodes(v, &writeBags[i], level, parent, thislevel, G);
       }
     }
     
@@ -161,7 +161,6 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
     for (int i = 1; i < NTHREADS; i++) {
       writeBags[0].mergeBags(writeBags[i]);
     }
-    printf("Bag now has %i element(s) \n", writeBags[0].size());
     writeBags[0].printBag();
     readBag = &writeBags[0];
 
