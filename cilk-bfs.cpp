@@ -74,6 +74,21 @@ graph * graph_from_edge_list (int *tail, int* head, int nedges) {
   return G;
 }
 
+void walkNeighbourNodes(int v, VertexBag writeBag, int *level, int *parrent){
+  int w;
+
+  
+  for (e = G->firstnbr[v]; e < G->firstnbr[v+1]; e++) {
+    w = G->nbr[e];          // w is the current neighbor of v
+
+    if (level[w] == -1) {   // w has not already been reached
+      parent[w] = v;
+      level[w] = thislevel+1;
+      writeBag.put(w);    // put w on queue to explore
+    }
+  }
+  
+}
 
 void print_CSR_graph (graph *G) {
   int vlimit = 20;
@@ -93,8 +108,7 @@ void print_CSR_graph (graph *G) {
 }
 
 
-void bfs (int s, graph *G, int **levelp, int *nlevelsp, 
-         int **levelsizep, int **parentp) {
+void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **parentp) {
   int *level, *levelsize, *parent;
   int thislevel;
   int back, front;
@@ -136,19 +150,10 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp,
 
     for (int i = 0; i < NTHREADS; i++){
       readBags[i].printBag();
+      while (! readBag.isEmpty()) {
+        v = readBag.get();       // v is the current vertex to explore from
 
-      while (! readBags[i].isEmpty()) {
-        v = readBags[i].get();       // v is the current vertex to explore from
-
-        for (e = G->firstnbr[v]; e < G->firstnbr[v+1]; e++) {
-          w = G->nbr[e];          // w is the current neighbor of v
-
-          if (level[w] == -1) {   // w has not already been reached
-            parent[w] = v;
-            level[w] = thislevel+1;
-            writeBags[i].put(w);    // put w on queue to explore
-          }
-        }
+        walkNeighbourNodes(v, writeBags[i]);
       }
     }
     
