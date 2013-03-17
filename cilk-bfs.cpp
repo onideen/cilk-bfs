@@ -108,7 +108,6 @@ void print_CSR_graph (graph *G) {
 }
 
 
-<<<<<<< HEAD
 void splitAndMergeBag(VertexBag *bag, int start, int end ){
 
   printf ("Start: %d, End: %d\n", start, end);
