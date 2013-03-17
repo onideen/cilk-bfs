@@ -10,7 +10,7 @@
 #include <string.h>
 #include <math.h>
 
-const int NTHREADS = 1;
+const int NTHREADS = 8;
 
 
 typedef struct graphstruct { // A graph in compressed-adjacency-list (CSR) form
@@ -112,7 +112,6 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
   int *level, *levelsize, *parent;
   int thislevel;
   int back, front;
-  int i, v, w, e;
   VertexBag *readBag = new VertexBag();
   VertexBag *writeBag = new VertexBag();
 
@@ -124,8 +123,8 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
   
   //queue = (int *) calloc(G->nv, sizeof(int));
 
-  for (v = 0; v < G->nv; v++) level[v] = -1;
-  for (v = 0; v < G->nv; v++) parent[v] = -1;
+  for (int v = 0; v < G->nv; v++) level[v] = -1;
+  for (int v = 0; v < G->nv; v++) parent[v] = -1;
 
   // assign the starting vertex level 0 and put it on the queue to explore
   thislevel = 0;
@@ -148,7 +147,8 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
 
     printf("-3-\n");
 
-    for (int i = 0; i < NTHREADS; i++){
+    cilk_for (int i = 0; i < NTHREADS; i++){
+      int v, w, e;
       readBags[i].printBag();
       while (! readBag.isEmpty()) {
         v = readBag.get();       // v is the current vertex to explore from
@@ -157,8 +157,10 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
       }
     }
     
-    printf("Merging bags with %i and %i element(s) \n", writeBags[0].size(), writeBags[1].size());
-    writeBags[0].mergeBags(writeBags[1]);
+    //printf("Merging bags with %i and %i element(s) \n", writeBags[0].size(), writeBags[1].size());
+    for (int i = 1; i < NTHREADS; i++) {
+      writeBags[0].mergeBags(writeBags[i]);
+    }
     printf("Bag now has %i element(s) \n", writeBags[0].size());
     writeBags[0].printBag();
     readBag = &writeBags[0];
