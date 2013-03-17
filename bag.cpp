@@ -41,11 +41,13 @@ public:
 
 	void mergeBags(VertexBag bag);
 	int* mergeLists(int *a, int *b, int sizeA, int sizeB){
+		printf("Starting mergeLists\n");
 		int* result = new int[sizeA+sizeB];
 		int l =0 ,r =0, size;
 		
 		size = sizeA + sizeB;
 		for (int i = 0; i < size; ++i){
+		//	printf("Appending %i or %i \n", a[l],b[r]);
 			if(a[l] == b[r] && l < sizeA && r < sizeB){
 				result[i] = a[l++];
 				r++;
@@ -147,7 +149,6 @@ void VertexBag::put(int vertex) {
 		if(vertex > bagArray[index]){
 			min = index + 1;
 		}else if(vertex < bagArray[index]){
-			printf("%i < %i\n",vertex, bagArray[index] );		
 			max = index -1;
 		}else{
 			//Number is in bag, sould not happen!
@@ -188,14 +189,21 @@ void VertexBag::setElement(int i, int value) {
 }
 
 void VertexBag::mergeBags(VertexBag bag){
-	int* left = new int[bagSize];
+	printf("Starting mergeBags with %i and %i \n",bagSize,bag.size());
 	int* right = new int[bag.size()];
-
+	int test = (int)bagSize+1;
+	int* left = new int[10000];
+	
+	//int* left;
+	//left = (int *)calloc(bagSize-1,sizeof(int));
+	//sleep(1);
 	//for sorterte lister
+	printf("Getting left half\n");
 	for (int i = 0; i < bagSize; ++i){
 		left[i] = getElement(i);
 	}
 
+	printf("Getting right half\n");
 	for (int i = 0; i < bag.size(); ++i){
 		right[i] = bag.getElement(i);
 	}
@@ -209,12 +217,27 @@ VertexBag* VertexBag::split(int numberOfBags){
 	VertexBag *bags;
 	bags = new VertexBag[numberOfBags];
 	int numberInEachBag = (int)ceil((double)size()/numberOfBags);
-
 	for (int i = 0; i < numberOfBags; i++) {
+
+		// lag settere for bagArray og bagSize
+		bags[i].bagArray = &bagArray[i*numberInEachBag];
+		bags[i].bagSize = numberInEachBag -1;
+		if(i < size() % numberInEachBag){
+			bags[i].bagSize++;
+		}
+	}
+	/*
+	printf("Starting for loop\n");
+	for (int i = 0; i < numberOfBags; i++) {
+		printf("Starting inner for loop\n");
+		
 		for (int j = 0; j < numberInEachBag && i*numberInEachBag+j < size(); j++){
+			if(j>600) printf("J = %i\n", j);
 			bags[i].put(getElement(i*numberInEachBag + j));
 		}
 	}
+	*/
+	printf("split done\n");
 	return bags;
 
 }

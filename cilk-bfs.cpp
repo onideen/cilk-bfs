@@ -122,15 +122,24 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp,
     levelsize[thislevel+1] = 0;
     
     readBag->printBag();    
+    printf("-1-\n");
+
     VertexBag* readBags = readBag->split(2);
+    printf("-2-\n");
+
     VertexBag* writeBags = new VertexBag[2];
+
+    printf("-3-\n");
 
     for (int i = 0; i < 2; i++){
       readBags[i].printBag();
+
       while (! readBags[i].isEmpty()) {
         v = readBags[i].get();       // v is the current vertex to explore from
+
         for (e = G->firstnbr[v]; e < G->firstnbr[v+1]; e++) {
           w = G->nbr[e];          // w is the current neighbor of v
+
           if (level[w] == -1) {   // w has not already been reached
             parent[w] = v;
             level[w] = thislevel+1;
@@ -140,13 +149,16 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp,
       }
     }
     
+    printf("Merging bags with %i and %i element(s) \n", writeBags[0].size(), writeBags[1].size());
     writeBags[0].mergeBags(writeBags[1]);
+    printf("Bag now has %i element(s) \n", writeBags[0].size());
     writeBags[0].printBag();
-
     readBag = &writeBags[0];
 
     levelsize[thislevel+1] = readBag->size();
+
     thislevel = thislevel+1;
+
   }
   *nlevelsp = thislevel;
 }
