@@ -8,15 +8,14 @@ using namespace std;
 class VertexBag {
 
 	int bagSize;
-	
 
 	int lengthOfArray;
 	int* bagArray;
 
-	/* Where the last vertex is located */
+	/* Where the min vertex is located */
 	int counter;
 
-	bool three;
+	bool heap;
 
 public:
 	/**
@@ -94,14 +93,16 @@ public:
 
 	}
 
-	void asHeap(bool b);
 
 	bool isEmpty(){
 		return size() == 0;
 	}
 
+	void put(int vertex) {
+		push(vertex, false);
+	}
 
-	void put(int vertex);
+	void push(int vertex, bool asHeap);
 
 	int get(); 
 
@@ -125,6 +126,7 @@ VertexBag::VertexBag() {
 	bagArray = new int[lengthOfArray];
 	counter = -1;
 	bagSize = 0;
+	heap = false;
 }
 
 void VertexBag::printBag(){
@@ -136,11 +138,7 @@ void VertexBag::printBag(){
 	cout << "\n";
 }
 
-void VertexBag::asHeap(bool b){
-	three = b;	
-}
-
-void VertexBag::put(int vertex) {
+void VertexBag::push(int vertex, bool asHeap) {
 	int tmp;
 	int i = bagSize;
 
@@ -156,6 +154,10 @@ void VertexBag::put(int vertex) {
 
 	bagArray[bagSize++] = vertex;
 
+	if (!asHeap) return;
+
+	heap = true;
+
 	while(i > 0 && bagArray[(i-1)/2] > vertex ) {
 		tmp = bagArray[(i-1)/2];
 		bagArray[(i-1)/2] = bagArray[i];
@@ -166,11 +168,27 @@ void VertexBag::put(int vertex) {
 }
 
 int VertexBag::peekMin() {
-	return 1;
+	if (bagSize == 0) return -1;
+
+	if (heap) return bagArray[0];
+	else 	return bagArray[counter];
 }
 
 int VertexBag::popMin() {
-	return 1;
+	bagSize--;
+	if (heap) {
+		int l, r, i;
+		int minValue = bagArray[0];
+		
+		i = 0; 
+
+		bagArray[0] = bagArray[bagSize];
+
+	}
+	else {
+		return bagArray[counter++];
+	}
+
 }
 
 int VertexBag::get() {
