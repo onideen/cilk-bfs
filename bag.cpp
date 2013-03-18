@@ -210,8 +210,9 @@ void VertexBag::setElement(int i, int value) {
 void VertexBag::mergeBags(VertexBag *bag){
 	printf("Starting mergeBags with %i and %i \n",bagSize,bag->size());
 	
-	VertexBag *temp; 
-	temp = new VertexBag;
+	int *temp;
+	int duplicates = 0;
+	temp = new int[size() + bag->size()];
 	//int* left;
 	//left = (int *)calloc(bagSize-1,sizeof(int));
 	//sleep(1);
@@ -227,15 +228,19 @@ void VertexBag::mergeBags(VertexBag *bag){
 		right[i] = bag->getElement(i);
 	}
 */
-	for (int i = 0; i < size() + bag->size(); ++i){
-		if(bag->peekMin() < peekMin() && bag->peekMin() > 0){
-			temp->setElement(bag->popMin);
+	for (int i = 0; i < size() + bag->size()-duplicates; ++i){
+		if(bag->peekMin() == peekMin() && peekMin() != -1){
+			temp[i] = popMin();
+			bag->popMin();
+			duplicates++;
+		}else if(bag->peekMin() < peekMin() && bag->peekMin() > 0){
+			temp[i] =  bag->popMin();
 		}else if(peekMin() > 0){
-			temp->setElement(popMin);
+			temp[i] = popMin();
 		}
 		//kopiere over verdier til den nye bagen !!!!!!!
-		free(this);
-		this = &temp[0];	
+		free(bagArray);
+		bagArray = temp;	
 	}
 	
 	//bagArray = mergeLists(left,right,bagSize,bag->size());
