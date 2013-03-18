@@ -29,8 +29,5 @@ Future
 ======
   * Bags as heaps
   * Figure out how to alloc 3500 elements
-
-
-
-
-
+  * Graph 500 implementation
+  * Cilkify make graph

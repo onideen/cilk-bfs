@@ -8,13 +8,15 @@ using namespace std;
 class VertexBag {
 
 	int bagSize;
+	
+
 	int lengthOfArray;
 	int* bagArray;
 
 	/* Where the last vertex is located */
 	int counter;
 
-
+	bool three;
 
 public:
 	/**
@@ -39,7 +41,10 @@ public:
 		return false;
 	}
 
-	void mergeBags(VertexBag bag);
+	int peekMin();
+	int popMin();
+
+	void mergeBags(VertexBag *bag);
 	int* mergeLists(int *a, int *b, int sizeA, int sizeB){
 		printf("Starting mergeLists\n");
 		int* result = new int[sizeA+sizeB];
@@ -89,6 +94,7 @@ public:
 
 	}
 
+	void asHeap(bool b);
 
 	bool isEmpty(){
 		return size() == 0;
@@ -115,7 +121,7 @@ public:
 };
 
 VertexBag::VertexBag() {
-	lengthOfArray = 500;
+	lengthOfArray = 1;
 	bagArray = new int[lengthOfArray];
 	counter = -1;
 	bagSize = 0;
@@ -130,48 +136,43 @@ void VertexBag::printBag(){
 	cout << "\n";
 }
 
-void VertexBag::put(int vertex) {
-	int index=0;
-	int min = 0, max = bagSize-1;
-
-	bagSize++;
-	if (size() == 0){
-		setElement(0, vertex);
-		return;
-	}else if(vertex > bagArray[bagSize-2]){
-		setElement(bagSize-1,vertex);
-		return;
-	}
-	
-	while(max > min){
-		index = ceil((max + min)/2);
-	
-		if(vertex > bagArray[index]){
-			min = index + 1;
-		}else if(vertex < bagArray[index]){
-			max = index -1;
-		}else{
-			//Number is in bag, sould not happen!
-		}
-	}
-
-	if (min>max)	{
-		index = min;
-	}if(min==max && vertex < bagArray[min]){
-		index = min;
-	}else if(min==max){
-		index = min+1;
-	}
-
-	int prev = getElement(index);
-	setElement(index, vertex);
-	for(int j = index+1; j < size(); j++) {
-		int tmp = getElement(j);
-		setElement(j, prev);
-		prev = tmp;
-	}
-	return;
+void VertexBag::asHeap(bool b){
+	three = b;	
 }
+
+void VertexBag::put(int vertex) {
+	int tmp;
+	int i = bagSize;
+
+	if (bagSize == lengthOfArray){
+		int *newArray = new int[lengthOfArray*2];
+		for (int j = 0; j < lengthOfArray; j++) {
+			newArray[j] = bagArray[j];
+		}
+		free(bagArray);
+		bagArray = newArray;
+		lengthOfArray = lengthOfArray*2;
+	}
+
+	bagArray[bagSize++] = vertex;
+
+	while(i > 0 && bagArray[(i-1)/2] > vertex ) {
+		tmp = bagArray[(i-1)/2];
+		bagArray[(i-1)/2] = bagArray[i];
+		bagArray[i] = tmp;
+		i = (i-1)/2;
+	}
+
+}
+
+int VertexBag::peekMin() {
+	return 1;
+}
+
+int VertexBag::popMin() {
+	return 1;
+}
+
 int VertexBag::get() {
 	if(bagSize != 0){
 		return bagArray[--bagSize];
@@ -188,9 +189,9 @@ void VertexBag::setElement(int i, int value) {
 	bagArray[i] = value;
 }
 
-void VertexBag::mergeBags(VertexBag bag){
-	printf("Starting mergeBags with %i and %i \n",bagSize,bag.size());
-	int* right = new int[bag.size()];
+void VertexBag::mergeBags(VertexBag *bag){
+	printf("Starting mergeBags with %i and %i \n",bagSize,bag->size());
+	int* right = new int[bag->size()];
 	int test = (int)bagSize+1;
 	int* left = new int[10000];
 	
@@ -204,11 +205,12 @@ void VertexBag::mergeBags(VertexBag bag){
 	}
 
 	printf("Getting right half\n");
-	for (int i = 0; i < bag.size(); ++i){
-		right[i] = bag.getElement(i);
+	for (int i = 0; i < bag->size(); ++i){
+		right[i] = bag->getElement(i);
 	}
 
-	bagArray = mergeLists(left,right,bagSize,bag.size());
+
+	bagArray = mergeLists(left,right,bagSize,bag->size());
 
 }
 

@@ -10,9 +10,6 @@
 #include <string.h>
 #include <math.h>
 
-const int NTHREADS = 8;
-
-
 typedef struct graphstruct { // A graph in compressed-adjacency-list (CSR) form
   int nv;            // number of vertices
   int ne;            // number of edges
@@ -108,34 +105,32 @@ void print_CSR_graph (graph *G) {
 }
 
 
-void splitAndMergeBag(VertexBag *bag, int start, int end ){
-
-  printf ("Start: %d, End: %d\n", start, end);
+VertexBag *splitAndMergeBag(VertexBag *inbag, VertexBag *outbag, int start, int end, int *level, int *parent, int thislevel, graph *G ){
   if ((end - start) > 10) {
+    VertexBag *leftbag;
+    VertexBag *rightbag;
+
     int mid = (end + start) / 2;
-    cilk_spawn splitAndMergeBag(bag, start, mid);
-    cilk_spawn splitAndMergeBag(bag, mid+1, end);
+    cilk_spawn splitAndMergeBag(inbag, leftbag, start, mid, level, parent, thislevel, G);
+    cilk_spawn splitAndMergeBag(inbag, rightbag, mid+1, end, level, parent, thislevel, G);
     cilk_sync;
+    leftbag->mergeBags(rightbag);
   }
   else {
-    printf("Bag: ");
+
     for (int i = 0; i <= end-start; i++) {
-      printf("%d, ", bag->getElement(start+i));
+      int v = inbag->getElement(start+i);
+      walkNeighbourNodes(v, outbag, level, parent, thislevel, G);
     }
-    printf("\n");
-    return;
   }
 
 }
-
-
 
 void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **parentp) {
   int *level, *levelsize, *parent;
   int thislevel;
   int back, front;
   VertexBag *readBag = new VertexBag();
-  VertexBag *writeBag = new VertexBag();
 
   int *queue;
 
@@ -143,8 +138,6 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
   level = *levelp = (int *) calloc(G->nv, sizeof(int));
   parent = *parentp = (int *) calloc(G->nv, sizeof(int));
   
-  //queue = (int *) calloc(G->nv, sizeof(int));
-
   for (int v = 0; v < G->nv; v++) level[v] = -1;
   for (int v = 0; v < G->nv; v++) parent[v] = -1;
 
@@ -152,55 +145,21 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
   thislevel = 0;
   level[s] = 0;
   levelsize[0] = 1;
-//  readBag->put(s);
-
-
-for (int i = 0; i < 80; i++){
-  readBag->put(i);
-}
+  readBag->put(s);
 
   // loop over levels, then over vertices at this level, then over neighbors
   while (! readBag->isEmpty()) {
     levelsize[thislevel+1] = 0;
-    
+    VertexBag *bag = new VertexBag();
 
-    cilk_spawn splitAndMergeBag(readBag, 0, readBag->size() - 1);
+    cilk_spawn splitAndMergeBag(readBag, bag, 0, readBag->size() - 1, level, parent, thislevel, G);
     cilk_sync;
-    exit(0);
-/*
-    readBag->printBag();    
-    printf("-1-\n");
 
-    VertexBag* readBags = readBag->split(NTHREADS);
-    printf("-2-\n");
-
-    VertexBag* writeBags = new VertexBag[NTHREADS];
-
-    printf("-3-\n");
-
-    cilk_for (int i = 0; i < NTHREADS; i++){
-      int v, w, e;
-      readBags[i].printBag();
-      while (! readBags[i].isEmpty()) {
-        v = readBags[i].get();       // v is the current vertex to explore from
-
-        walkNeighbourNodes(v, &writeBags[i], level, parent, thislevel, G);
-      }
-    }
-    
-    //printf("Merging bags with %i and %i element(s) \n", writeBags[0].size(), writeBags[1].size());
-    for (int i = 1; i < NTHREADS; i++) {
-      writeBags[0].mergeBags(writeBags[i]);
-    }
-
-    printf("Bag now has %i element(s) \n", writeBags[0].size());
-    writeBags[0].printBag();
-    readBag = &writeBags[0];
+    bag->printBag();
+    readBag = bag;
 
     levelsize[thislevel+1] = readBag->size();
-
     thislevel = thislevel+1;
-*/
   }
   *nlevelsp = thislevel;
 }
