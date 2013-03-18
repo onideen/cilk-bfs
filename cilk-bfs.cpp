@@ -73,18 +73,16 @@ graph * graph_from_edge_list (int *tail, int* head, int nedges) {
 
 void walkNeighbourNodes(int v, VertexBag *writeBag, int *level, int *parent, int thislevel, graph *G){
   int w, e;
-  //VertexBag writeBag = (VertexBag )
-  
+  // /VertexBag writeBag = (VertexBag )
   for (e = G->firstnbr[v]; e < G->firstnbr[v+1]; e++) {
     w = G->nbr[e];          // w is the current neighbor of v
-
     if (level[w] == -1) {   // w has not already been reached
       parent[w] = v;
       level[w] = thislevel+1;
-      writeBag->put(w);    // put w on queue to explore   
+      writeBag->push(w);    // put w on queue to explore   
+    
     }
   }
-  
 }
 
 void print_CSR_graph (graph *G) {
@@ -105,23 +103,27 @@ void print_CSR_graph (graph *G) {
 }
 
 
-VertexBag *splitAndMergeBag(VertexBag *inbag, VertexBag *outbag, int start, int end, int *level, int *parent, int thislevel, graph *G ){
-  if ((end - start) > 10) {
-    VertexBag *leftbag;
-    VertexBag *rightbag;
-
+VertexBag *splitAndMergeBag(VertexBag *inbag, int start, int end, int *level, int *parent, int thislevel, graph *G ){
+  if ((end - start) > 2) {
+    VertexBag *leftbag = new VertexBag();
+    VertexBag *rightbag = new VertexBag();
     int mid = (end + start) / 2;
-    cilk_spawn splitAndMergeBag(inbag, leftbag, start, mid, level, parent, thislevel, G);
-    cilk_spawn splitAndMergeBag(inbag, rightbag, mid+1, end, level, parent, thislevel, G);
+    leftbag = cilk_spawn splitAndMergeBag(inbag, start, mid, level, parent, thislevel, G);
+    rightbag = cilk_spawn splitAndMergeBag(inbag, mid+1, end, level, parent, thislevel, G);
     cilk_sync;
+
     leftbag->mergeBags(rightbag);
+    free(rightbag);
+    return leftbag;
   }
   else {
-
+    VertexBag* bag = new VertexBag();
     for (int i = 0; i <= end-start; i++) {
       int v = inbag->getElement(start+i);
-      walkNeighbourNodes(v, outbag, level, parent, thislevel, G);
+      walkNeighbourNodes(v, bag, level, parent, thislevel, G);
     }
+     return bag;
+
   }
 
 }
@@ -145,17 +147,17 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
   thislevel = 0;
   level[s] = 0;
   levelsize[0] = 1;
-  readBag->put(s);
+  readBag->push(s);
 
   // loop over levels, then over vertices at this level, then over neighbors
   while (! readBag->isEmpty()) {
     levelsize[thislevel+1] = 0;
-    VertexBag *bag = new VertexBag();
+    VertexBag *bag;
 
-    cilk_spawn splitAndMergeBag(readBag, bag, 0, readBag->size() - 1, level, parent, thislevel, G);
+    bag = cilk_spawn splitAndMergeBag(readBag, 0, readBag->size() - 1, level, parent, thislevel, G);
     cilk_sync;
-
     bag->printBag();
+
     readBag = bag;
 
     levelsize[thislevel+1] = readBag->size();
@@ -195,7 +197,7 @@ int cilk_main (int argc, char* argv[]) {
   printf("Breadth-first search from vertex %d reached %d levels and %d vertices.\n",
     startvtx, nlevels, reached);
   for (i = 0; i < nlevels; i++) printf("level %d vertices: %d\n", i, levelsize[i]);
-  if (G->nv < 20) {
+  if (G->nv < 30) {
     printf("\n  vertex parent  level\n");
     for (v = 0; v < G->nv; v++) printf("%6d%7d%7d\n", v, parent[v], level[v]);
   }

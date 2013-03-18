@@ -75,7 +75,7 @@ void VertexBag::push(int vertex) {
 
 	if (bagSize == lengthOfArray){
 		int *newArray = new int[lengthOfArray*2];
-		for (int j = 0; j < lengthOfArray; j++) {
+		for (int j = 0; j < lengthOfArray; j++){
 			newArray[j] = bagArray[j];
 		}
 		free(bagArray);
@@ -96,12 +96,12 @@ void VertexBag::push(int vertex) {
 
 int VertexBag::peekMin() {
 	if (bagSize == 0) return -1;
-
 	if (heap) return bagArray[0];
 	else 	return bagArray[counter];
 }
 
 int VertexBag::popMin() {
+	
 	bagSize--;
 	if (heap) {
 		int min = bagArray[0];
@@ -146,24 +146,28 @@ int VertexBag::getElement(int i) {
 }
 
 void VertexBag::mergeBags(VertexBag *bag){
-	printf("Starting mergeBags with %i and %i \n",bagSize,bag->size());
-	
 	int *temp;
-	int duplicates = 0;
 	temp = new int[size() + bag->size()];
+	int i = 0;
 
-	for (int i = 0; i < size() + bag->size()-duplicates; ++i){
-		if(bag->peekMin() == peekMin() && peekMin() != -1){
+	while (!isEmpty() || !bag->isEmpty()){
+
+		if(bag->peekMin() == peekMin() && !isEmpty() && !bag->isEmpty()){
 			temp[i] = popMin();
 			bag->popMin();
-			duplicates++;
-		}else if(bag->peekMin() < peekMin() && bag->peekMin() > 0){
+		}else if(!bag->isEmpty() && (bag->peekMin() < peekMin() || isEmpty())) {
 			temp[i] =  bag->popMin();
-		}else if(peekMin() > 0){
+		}else if(peekMin() >= 0){
 			temp[i] = popMin();
 		}
-		//kopiere over verdier til den nye bagen !!!!!!!
-		free(bagArray);
-		bagArray = temp;	
-	}	
+		i++;
+	}
+
+	free(bagArray);
+	bagArray = temp;
+
+	bagSize = i;
+	counter = 0;
+
+	heap = false;	
 }

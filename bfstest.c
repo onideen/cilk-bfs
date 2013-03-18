@@ -165,7 +165,7 @@ int main (int argc, char* argv[]) {
   printf("Breadth-first search from vertex %d reached %d levels and %d vertices.\n",
     startvtx, nlevels, reached);
   for (i = 0; i < nlevels; i++) printf("level %d vertices: %d\n", i, levelsize[i]);
-  if (G->nv < 20) {
+  if (G->nv < 30) {
     printf("\n  vertex parent  level\n");
     for (v = 0; v < G->nv; v++) printf("%6d%7d%7d\n", v, parent[v], level[v]);
   }
