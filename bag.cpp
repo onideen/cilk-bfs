@@ -43,6 +43,8 @@ public:
 	int peekMin();
 	int popMin();
 
+	void minHeapify(int pos);
+
 	void mergeBags(VertexBag *bag);
 	int* mergeLists(int *a, int *b, int sizeA, int sizeB){
 		printf("Starting mergeLists\n");
@@ -99,10 +101,10 @@ public:
 	}
 
 	void put(int vertex) {
-		push(vertex, false);
+		push(vertex);
 	}
 
-	void push(int vertex, bool asHeap);
+	void push(int vertex);
 
 	int get(); 
 
@@ -126,7 +128,7 @@ VertexBag::VertexBag() {
 	bagArray = new int[lengthOfArray];
 	counter = -1;
 	bagSize = 0;
-	heap = false;
+	heap = true;
 }
 
 void VertexBag::printBag(){
@@ -138,7 +140,7 @@ void VertexBag::printBag(){
 	cout << "\n";
 }
 
-void VertexBag::push(int vertex, bool asHeap) {
+void VertexBag::push(int vertex) {
 	int tmp;
 	int i = bagSize;
 
@@ -154,11 +156,7 @@ void VertexBag::push(int vertex, bool asHeap) {
 
 	bagArray[bagSize++] = vertex;
 
-	if (!asHeap) return;
-
-	heap = true;
-
-	while(i > 0 && bagArray[(i-1)/2] > vertex ) {
+	while(i > 0 && bagArray[(i-1)/2] > vertex && heap) {
 		tmp = bagArray[(i-1)/2];
 		bagArray[(i-1)/2] = bagArray[i];
 		bagArray[i] = tmp;
@@ -177,16 +175,39 @@ int VertexBag::peekMin() {
 int VertexBag::popMin() {
 	bagSize--;
 	if (heap) {
-		int l, r, i;
-		int minValue = bagArray[0];
-		
-		i = 0; 
+		int min = bagArray[0];
 
 		bagArray[0] = bagArray[bagSize];
 
+		minHeapify(0);
+		return min;
 	}
 	else {
 		return bagArray[counter++];
+	}
+
+}
+
+void VertexBag::minHeapify(int i){
+	int l, r, min;
+	l = (i+1)*2-1;
+	r = (i+1)*2;
+
+	if (l < bagSize && bagArray[l] < bagArray[i]) {
+		min = l;
+	} else {
+		min = i;
+	}
+	if (l < bagSize && bagArray[r] < bagArray[i]){
+		min = r;
+	}
+
+	if (min != i) {
+		int tmp = bagArray[min];
+		bagArray[min] = bagArray[i];
+		bagArray[i] = tmp;
+
+		minHeapify(i);
 	}
 
 }
