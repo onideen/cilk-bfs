@@ -39,11 +39,11 @@ graph * graph_from_edge_list (int *tail, int* head, int nedges) {
   G = (graph *) calloc(1, sizeof(graph));
   G->ne = nedges;
 
-  cilk::reducer_max<int> maxv;
+  int maxv;
   // count vertices
-  cilk_for (int k = 0; k < G->ne; k++) {
-    cilk::max_of(maxv, tail[k]);
-    cilk::max_of(maxv, head[k]);
+  for (int k = 0; k < G->ne; k++) {
+    if (tail[e] > maxv) maxv = tail[e];
+    if (head[e] > maxv) maxv = head[e];
   }
 
   G->nv = maxv.get_value()+1;
@@ -105,7 +105,7 @@ VertexBag *splitAndMergeBag(VertexBag *inbag, int start, int end, int *level, in
     VertexBag *rightbag = new VertexBag();
     int mid = (end + start) / 2;
     leftbag = cilk_spawn splitAndMergeBag(inbag, start, mid, level, parent, thislevel, G);
-    rightbag = cilk_spawn splitAndMergeBag(inbag, mid+1, end, level, parent, thislevel, G);
+    rightbag = splitAndMergeBag(inbag, mid+1, end, level, parent, thislevel, G);
     cilk_sync;
 
     leftbag->mergeBags(rightbag);
