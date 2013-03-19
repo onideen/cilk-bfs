@@ -51,8 +51,6 @@ graph * graph_from_edge_list (int *tail, int* head, int nedges) {
     if (head[e] > maxv) maxv = head[e];
   }
 
-  printf("%d\n", maxv);
-  exit(0);
   G->nv = maxv+1;
   G->nbr = (int *) calloc(G->ne, sizeof(int));
   G->firstnbr = (int *) calloc(G->nv+1, sizeof(int));

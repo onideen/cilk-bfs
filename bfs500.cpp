@@ -1,65 +1,52 @@
-#include "cilk-bfs.h"
+#include "cilk-bfs.cpp"
+
+using namespace std;
 
 
 
+int cilk_main (int argc, char* argv[]) {
+  graph *G;
+
+  int NBFS = 64;
+  int *level, *levelsize, *parent;
+  int *tail, *head;
+  int nedges;
+  int nlevels;
+  int startvtx;
+  int i, v, reached;
+
+  if (argc != 1) {
+    printf("usage:   bfstest < <edgelistfile>\n");
+    printf("example: cat sample.txt | ./bfstest 1\n");
+    exit(1);
+  }
+  nedges = read_edge_list (&tail, &head);
+  G = graph_from_edge_list (tail, head, nedges);
+  free(tail);
+  free(head);
+  print_CSR_graph (G);
 
 
-int cilk_main(int argc, char* argv[]) {
-/*
-	int SCALE = 10;
-	int edgefactor = 16;
-	int NBFS = 64;
-	int *tail, *head;
-	
+  while (NBFS > 0) {
 
-	if (argc == 1) {
-    	startvtx = atoi (argv[1]);
-  	} else {
-    	printf("usage:   bfs500\n");
-	    printf("example: cat sample.txt | ./bfstest 1\n");
-	    exit(1);
-  	}
+    startvtx = rand() % G->nv;
+    if (!hasNeighours(startvtx, G)){
+      continue;
+    }
+    NBFS--;
+    printf("Starting vertex for BFS is %d.\n\n",startvtx);
+    bfs (startvtx, G, &level, &nlevels, &levelsize, &parent);
 
-
-	rand ("seed", 103);
-
-	kronecker_generator (SCALE, edgefactor, &tail, &head);
-
-	tic;
-	G = kernel_1 (ij);
-	kernel_1_time = toc;
-
-	N = size (G, 1);
-	coldeg = full (spstats (G));
-	search_key = randperm (N);
-	search_key(coldeg(search_key) == 0) = [];
-	if length (search_key) > NBFS,
-	  search_key = search_key(1:NBFS);
-	else
-	  NBFS = length (search_key);
-	end
-	search_key = search_key - 1;  
-
-	kernel_2_time = Inf * ones (NBFS, 1);
-	kernel_2_nedge = zeros (NBFS, 1);
-
-	indeg = histc (ij(:), 1:N); % For computing the number of edges
-
-	for k = 1:NBFS,
-	  tic;
-	  parent = kernel_2 (G, search_key(k));
-	  kernel_2_time(k) = toc;
-	  err = validate (parent, ij, search_key (k));
-	  if err <= 0,
-	    error (sprintf ("BFS %d from search key %d failed to validate: %d",
-	                    k, search_key(k), err));
-	  end
-	  kernel_2_nedge(k) = sum (indeg(parent >= 0))/2; % Volume/2
-	end
-
-	output (SCALE, edgefactor, NBFS, kernel_1_time, kernel_2_time, kernel_2_nedge);
-*/
-
-
+    reached = 0;
+    for (i = 0; i < nlevels; i++) reached += levelsize[i];
+    printf("Breadth-first search from vertex %d reached %d levels and %d vertices.\n",
+      startvtx, nlevels, reached);
+    for (i = 0; i < nlevels; i++) printf("level %d vertices: %d\n", i, levelsize[i]);
+    if (G->nv < 30) {
+      printf("\n  vertex parent  level\n");
+      for (v = 0; v < G->nv; v++) printf("%6d%7d%7d\n", v, parent[v], level[v]);
+    }
+    printf("\n");
+  }
 }
 
