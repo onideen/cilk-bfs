@@ -15,8 +15,10 @@ typedef struct graphstruct { // A graph in compressed-adjacency-list (CSR) form
 
 
 void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **parentp);
-
-
+int read_edge_list (int **tailp, int **headp);
+graph * graph_from_edge_list (int *tail, int* head, int nedges);
+void print_CSR_graph (graph *G);
+bool hasNeighours(int startvtx, graph *G );
 
 
 

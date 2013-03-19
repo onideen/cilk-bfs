@@ -27,26 +27,20 @@ int read_edge_list (int **tailp, int **headp) {
 
 
 
-
-
-
-
-
-
 graph * graph_from_edge_list (int *tail, int* head, int nedges) {
   graph *G;
   int i, e, v;
   G = (graph *) calloc(1, sizeof(graph));
   G->ne = nedges;
 
-  cilk::reducer_max<int> maxv;
+  int maxv;
   // count vertices
-  cilk_for (int k = 0; k < G->ne; k++) {
-    cilk::max_of(maxv, tail[k]);
-    cilk::max_of(maxv, head[k]);
+  for (e = 0; e < G->ne; e++) {
+    if (tail[e] > maxv) maxv = tail[e];
+    if (head[e] > maxv) maxv = head[e];
   }
 
-  G->nv = maxv.get_value()+1;
+  G->nv = maxv+1;
   G->nbr = (int *) calloc(G->ne, sizeof(int));
   G->firstnbr = (int *) calloc(G->nv+1, sizeof(int));
 
@@ -65,6 +59,10 @@ graph * graph_from_edge_list (int *tail, int* head, int nedges) {
   for (v = G->nv; v > 0; v--) G->firstnbr[v] = G->firstnbr[v-1];
   G->firstnbr[0] = 0;
   return G;
+}
+
+bool hasNeighours(int startvtx, graph *G ) {
+  return G->firstnbr[startvtx] != G->firstnbr[startvtx+1];
 }
 
 void walkNeighbourNodes(int v, VertexBag *writeBag, int *level, int *parent, int thislevel, graph *G){
@@ -101,12 +99,12 @@ void print_CSR_graph (graph *G) {
 
 
 VertexBag *splitAndMergeBag(VertexBag *inbag, int start, int end, int *level, int *parent, int thislevel, graph *G ){
-  if ((end - start) > 2) {
+  if ((end - start) > 128) {
     VertexBag *leftbag = new VertexBag();
     VertexBag *rightbag = new VertexBag();
     int mid = (end + start) / 2;
     leftbag = cilk_spawn splitAndMergeBag(inbag, start, mid, level, parent, thislevel, G);
-    rightbag = cilk_spawn splitAndMergeBag(inbag, mid+1, end, level, parent, thislevel, G);
+    rightbag = splitAndMergeBag(inbag, mid+1, end, level, parent, thislevel, G);
     cilk_sync;
 
     leftbag->mergeBags(rightbag);
@@ -165,8 +163,14 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
 }
 
 
+#ifdef GRAPH500
+
+#else
+
 int cilk_main (int argc, char* argv[]) {
   graph *G;
+
+  int NBFS;
   int *level, *levelsize, *parent;
   int *tail, *head;
   int nedges;
@@ -175,9 +179,9 @@ int cilk_main (int argc, char* argv[]) {
   int i, v, reached;
 
   if (argc == 2) {
-    startvtx = atoi (argv[1]);
+    NBFS = atoi (argv[1]);
   } else {
-    printf("usage:   bfstest <startvtx> < <edgelistfile>\n");
+    printf("usage:   bfstest <numberOfSearches> < <edgelistfile>\n");
     printf("example: cat sample.txt | ./bfstest 1\n");
     exit(1);
   }
@@ -187,17 +191,29 @@ int cilk_main (int argc, char* argv[]) {
   free(head);
   print_CSR_graph (G);
 
-  printf("Starting vertex for BFS is %d.\n\n",startvtx);
-  bfs (startvtx, G, &level, &nlevels, &levelsize, &parent);
 
-  reached = 0;
-  for (i = 0; i < nlevels; i++) reached += levelsize[i];
-  printf("Breadth-first search from vertex %d reached %d levels and %d vertices.\n",
-    startvtx, nlevels, reached);
-  for (i = 0; i < nlevels; i++) printf("level %d vertices: %d\n", i, levelsize[i]);
-  if (G->nv < 30) {
-    printf("\n  vertex parent  level\n");
-    for (v = 0; v < G->nv; v++) printf("%6d%7d%7d\n", v, parent[v], level[v]);
+  while (NBFS > 0) {
+
+    startvtx = rand() % G->nv;
+    if (!hasNeighours(startvtx, G)){
+      continue;
+    }
+    NBFS--;
+    printf("Starting vertex for BFS is %d.\n\n",startvtx);
+    bfs (startvtx, G, &level, &nlevels, &levelsize, &parent);
+
+    reached = 0;
+    for (i = 0; i < nlevels; i++) reached += levelsize[i];
+    printf("Breadth-first search from vertex %d reached %d levels and %d vertices.\n",
+      startvtx, nlevels, reached);
+    for (i = 0; i < nlevels; i++) printf("level %d vertices: %d\n", i, levelsize[i]);
+    if (G->nv < 30) {
+      printf("\n  vertex parent  level\n");
+      for (v = 0; v < G->nv; v++) printf("%6d%7d%7d\n", v, parent[v], level[v]);
+    }
+    printf("\n");
   }
-  printf("\n");
+
 }
+
+#endif

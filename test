@@ -1,0 +1,1033 @@
+
+Graph has 8192 vertices and 131072 edges.
+firstnbr = 0 3 11 15 15 15 28 28 391 391 393 395 397 437 440 440 440 483 493 535 535 ...
+nbr = 1313 4053 3448 7434 4102 2672 3438 680 6862 6716 5310 4125 7332 6854 3109 4750 655 2290 5314 2488 1431 5770 1550 7052 6226 5712 6678 7889 7801 2607 1927 1683 5258 1421 691 4365 4933 292 7747 2098 655 680 7732 5613 3739 3586 5987 4015 1800 3657 ...
+
+Starting vertex for BFS is 1383.
+
+Bag: 655, 680, 1838, 991, 3214, 1852, 2602, 1408, 2585, 6104, 
+Bag: 1, 5, 7, 9, 16, 17, 18, 24, 35, 39, 
+Bag: 0, 8, 13, 14, 20, 25, 26, 29, 34, 36, 
+Bag: 428, 446, 822, 1062, 1137, 1159, 1199, 1446, 1492, 1573, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 1383 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 32
+level 2 vertices: 2720
+level 3 vertices: 2860
+level 4 vertices: 79
+level 5 vertices: 1
+
+Starting vertex for BFS is 6249.
+
+Bag: 97, 1052, 2232, 8049, 2216, 6229, 3463, 
+Bag: 5, 7, 12, 32, 95, 178, 292, 517, 655, 1537, 
+Bag: 0, 1, 8, 9, 10, 13, 14, 16, 17, 18, 
+Bag: 26, 29, 61, 83, 102, 114, 126, 131, 133, 165, 
+Bag: 428, 1847, 3632, 6419, 6430, 
+Bag: 
+Breadth-first search from vertex 6249 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 7
+level 2 vertices: 858
+level 3 vertices: 4349
+level 4 vertices: 472
+level 5 vertices: 5
+
+Starting vertex for BFS is 7249.
+
+Bag: 7, 714, 178, 1502, 2155, 2114, 3578, 3395, 6332, 5917, 
+Bag: 16, 18, 20, 27, 32, 35, 36, 46, 52, 74, 
+Bag: 0, 1, 5, 8, 9, 10, 12, 13, 14, 17, 
+Bag: 38, 61, 102, 165, 310, 316, 318, 340, 348, 428, 
+Bag: 3632, 
+Bag: 
+Breadth-first search from vertex 7249 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 14
+level 2 vertices: 1781
+level 3 vertices: 3703
+level 4 vertices: 192
+level 5 vertices: 1
+
+Starting vertex for BFS is 7423.
+
+Bag: 5409, 
+Bag: 99, 107, 141, 178, 154, 683, 292, 639, 589, 1431, 
+Bag: 0, 1, 5, 7, 9, 10, 14, 16, 17, 18, 
+Bag: 8, 13, 20, 26, 34, 38, 39, 54, 61, 66, 
+Bag: 428, 446, 822, 1470, 1492, 1692, 1702, 1847, 1899, 2129, 
+Bag: 
+Breadth-first search from vertex 7423 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 1
+level 2 vertices: 111
+level 3 vertices: 3655
+level 4 vertices: 1889
+level 5 vertices: 36
+
+Starting vertex for BFS is 7977.
+
+Bag: 811, 832, 1784, 4125, 3586, 2327, 3211, 4933, 7147, 5259, 
+Bag: 0, 7, 18, 25, 27, 33, 35, 39, 46, 56, 
+Bag: 1, 5, 8, 9, 10, 12, 13, 14, 16, 17, 
+Bag: 61, 126, 237, 290, 310, 316, 320, 340, 348, 370, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 7977 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 14
+level 2 vertices: 1782
+level 3 vertices: 3693
+level 4 vertices: 201
+level 5 vertices: 1
+
+Starting vertex for BFS is 7373.
+
+Bag: 680, 
+Bag: 5, 7, 27, 10, 32, 46, 33, 41, 12, 35, 
+Bag: 0, 1, 8, 9, 13, 14, 16, 17, 18, 20, 
+Bag: 38, 165, 193, 260, 304, 310, 316, 348, 428, 446, 
+Bag: 1847, 3632, 
+Bag: 
+Breadth-first search from vertex 7373 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 1
+level 2 vertices: 1497
+level 3 vertices: 3927
+level 4 vertices: 264
+level 5 vertices: 2
+
+Starting vertex for BFS is 6330.
+
+Bag: 154, 230, 178, 655, 343, 361, 221, 1001, 1319, 1349, 
+Bag: 0, 1, 5, 7, 8, 9, 10, 12, 14, 16, 
+Bag: 13, 20, 26, 29, 38, 54, 61, 66, 77, 78, 
+Bag: 310, 428, 1052, 1159, 1692, 1700, 1847, 1899, 1957, 2129, 
+Bag: 
+Breadth-first search from vertex 6330 reached 5 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 123
+level 2 vertices: 3810
+level 3 vertices: 1723
+level 4 vertices: 36
+
+Starting vertex for BFS is 6059.
+
+Bag: 298, 1909, 2507, 5805, 2071, 
+Bag: 7, 12, 73, 90, 99, 166, 1852, 3562, 5257, 5380, 
+Bag: 0, 1, 5, 8, 9, 10, 13, 14, 16, 17, 
+Bag: 34, 61, 102, 114, 131, 149, 159, 165, 192, 237, 
+Bag: 428, 1847, 2644, 3338, 3632, 4206, 4526, 6419, 6430, 7629, 
+Bag: 
+Breadth-first search from vertex 6059 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 5
+level 2 vertices: 661
+level 3 vertices: 4428
+level 4 vertices: 588
+level 5 vertices: 10
+
+Starting vertex for BFS is 498.
+
+Bag: 3984, 4397, 
+Bag: 7, 27, 33, 46, 52, 67, 110, 56, 84, 95, 
+Bag: 0, 1, 5, 8, 9, 10, 12, 13, 14, 16, 
+Bag: 61, 66, 102, 126, 131, 159, 163, 165, 193, 201, 
+Bag: 1847, 1899, 3632, 6430, 7629, 
+Bag: 
+Breadth-first search from vertex 498 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 2
+level 2 vertices: 852
+level 3 vertices: 4333
+level 4 vertices: 499
+level 5 vertices: 5
+
+Starting vertex for BFS is 7931.
+
+Bag: 74, 697, 333, 2173, 2110, 1313, 680, 7278, 3295, 6117, 
+Bag: 5, 7, 8, 10, 12, 27, 32, 33, 35, 39, 
+Bag: 0, 1, 9, 13, 14, 16, 17, 18, 20, 25, 
+Bag: 38, 165, 310, 316, 348, 428, 446, 499, 662, 699, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 7931 reached 6 levels and 5694 vertices.
+level 0 vertices: 1
+level 1 vertices: 14
+level 2 vertices: 2055
+level 3 vertices: 3467
+level 4 vertices: 156
+level 5 vertices: 1
+
+Starting vertex for BFS is 2531.
+
+Bag: 680, 1684, 2580, 1844, 3109, 4397, 4319, 7766, 4474, 5346, 
+Bag: 5, 7, 12, 24, 27, 64, 84, 154, 352, 655, 
+Bag: 0, 1, 8, 9, 13, 14, 16, 17, 18, 20, 
+Bag: 310, 316, 428, 499, 645, 699, 822, 913, 1052, 1061, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 2531 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 11
+level 2 vertices: 2049
+level 3 vertices: 3474
+level 4 vertices: 156
+level 5 vertices: 1
+
+Starting vertex for BFS is 326.
+
+Bag: 178, 755, 617, 2118, 1791, 3936, 5996, 5916, 2742, 4365, 
+Bag: 7, 27, 32, 33, 36, 46, 73, 86, 97, 111, 
+Bag: 0, 1, 5, 8, 9, 10, 12, 13, 14, 16, 
+Bag: 38, 61, 102, 131, 163, 165, 310, 316, 318, 320, 
+Bag: 1847, 3632, 6419, 
+Bag: 
+Breadth-first search from vertex 326 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 13
+level 2 vertices: 1318
+level 3 vertices: 4079
+level 4 vertices: 279
+level 5 vertices: 3
+
+Starting vertex for BFS is 706.
+
+Bag: 1569, 4319, 2159, 
+Bag: 27, 56, 292, 244, 154, 298, 328, 991, 1674, 680, 
+Bag: 0, 1, 5, 7, 8, 12, 14, 16, 17, 18, 
+Bag: 9, 13, 25, 26, 29, 34, 36, 38, 53, 61, 
+Bag: 428, 822, 1700, 1702, 1847, 1899, 1945, 1957, 2324, 2463, 
+Bag: 
+Breadth-first search from vertex 706 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 3
+level 2 vertices: 99
+level 3 vertices: 3820
+level 4 vertices: 1736
+level 5 vertices: 33
+
+Starting vertex for BFS is 2132.
+
+Bag: 6268, 
+Bag: 18, 154, 32, 178, 292, 265, 655, 1037, 493, 401, 
+Bag: 0, 5, 7, 8, 10, 12, 14, 16, 17, 24, 
+Bag: 1, 9, 13, 20, 25, 26, 29, 34, 38, 54, 
+Bag: 310, 428, 1052, 1159, 1692, 1700, 1702, 1847, 1899, 1945, 
+Bag: 
+Breadth-first search from vertex 2132 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 1
+level 2 vertices: 106
+level 3 vertices: 3725
+level 4 vertices: 1821
+level 5 vertices: 38
+
+Starting vertex for BFS is 2040.
+
+Bag: 166, 4015, 401, 4880, 7304, 
+Bag: 0, 7, 18, 39, 46, 60, 3192, 3591, 2334, 3072, 
+Bag: 1, 5, 8, 9, 10, 12, 13, 14, 16, 17, 
+Bag: 26, 61, 66, 102, 163, 165, 237, 260, 290, 293, 
+Bag: 1847, 2324, 2463, 3632, 6430, 
+Bag: 
+Breadth-first search from vertex 2040 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 5
+level 2 vertices: 771
+level 3 vertices: 4379
+level 4 vertices: 532
+level 5 vertices: 5
+
+Starting vertex for BFS is 2536.
+
+Bag: 680, 2107, 1783, 4400, 4446, 7671, 3947, 6268, 4972, 
+Bag: 5, 7, 10, 18, 32, 60, 221, 239, 361, 991, 
+Bag: 0, 1, 8, 9, 13, 14, 16, 17, 20, 25, 
+Bag: 38, 165, 193, 260, 304, 310, 316, 348, 428, 446, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 2536 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 9
+level 2 vertices: 1614
+level 3 vertices: 3834
+level 4 vertices: 233
+level 5 vertices: 1
+
+Starting vertex for BFS is 3559.
+
+Bag: 270, 1238, 328, 2425, 4933, 4271, 2488, 5459, 3910, 7304, 
+Bag: 0, 7, 16, 17, 18, 35, 48, 52, 73, 134, 
+Bag: 1, 5, 8, 9, 10, 12, 13, 14, 20, 24, 
+Bag: 61, 131, 165, 237, 304, 310, 316, 340, 370, 384, 
+Bag: 1847, 6430, 
+Bag: 
+Breadth-first search from vertex 3559 reached 6 levels and 5694 vertices.
+level 0 vertices: 1
+level 1 vertices: 11
+level 2 vertices: 1349
+level 3 vertices: 4039
+level 4 vertices: 292
+level 5 vertices: 2
+
+Starting vertex for BFS is 909.
+
+Bag: 292, 691, 3677, 1301, 3109, 4125, 4748, 4447, 2345, 3657, 
+Bag: 7, 10, 12, 16, 18, 52, 64, 67, 73, 141, 
+Bag: 0, 1, 5, 8, 9, 13, 14, 20, 24, 25, 
+Bag: 38, 61, 102, 126, 310, 316, 320, 321, 340, 348, 
+Bag: 1847, 1899, 6430, 
+Bag: 
+Breadth-first search from vertex 909 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 12
+level 2 vertices: 1665
+level 3 vertices: 3796
+level 4 vertices: 215
+level 5 vertices: 3
+
+Starting vertex for BFS is 3958.
+
+Bag: 1994, 5413, 7392, 6699, 5707, 
+Bag: 7, 14, 16, 17, 18, 27, 3716, 5598, 5603, 5447, 
+Bag: 0, 1, 5, 8, 9, 10, 12, 13, 20, 24, 
+Bag: 38, 54, 61, 66, 102, 108, 126, 159, 163, 165, 
+Bag: 1052, 1847, 1899, 6419, 7629, 
+Bag: 
+Breadth-first search from vertex 3958 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 5
+level 2 vertices: 885
+level 3 vertices: 4337
+level 4 vertices: 459
+level 5 vertices: 5
+
+Starting vertex for BFS is 1370.
+
+Bag: 52, 178, 1174, 680, 845, 2275, 3175, 1431, 2012, 2760, 
+Bag: 1, 5, 7, 10, 14, 16, 18, 27, 32, 33, 
+Bag: 0, 8, 9, 13, 17, 20, 25, 26, 29, 34, 
+Bag: 310, 316, 428, 726, 803, 822, 1052, 1062, 1199, 1446, 
+Bag: 1847, 3632, 
+Bag: 
+Breadth-first search from vertex 1370 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 35
+level 2 vertices: 2771
+level 3 vertices: 2795
+level 4 vertices: 89
+level 5 vertices: 2
+
+Starting vertex for BFS is 6446.
+
+Bag: 1780, 1994, 3964, 3544, 3984, 4125, 5761, 7354, 4907, 6699, 
+Bag: 0, 7, 17, 18, 27, 46, 50, 56, 64, 75, 
+Bag: 1, 5, 8, 9, 10, 12, 13, 14, 16, 20, 
+Bag: 61, 126, 237, 290, 310, 316, 320, 340, 348, 384, 
+Bag: 1847, 6430, 
+Bag: 
+Breadth-first search from vertex 6446 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 13
+level 2 vertices: 1493
+level 3 vertices: 3924
+level 4 vertices: 259
+level 5 vertices: 2
+
+Starting vertex for BFS is 4707.
+
+Bag: 926, 1192, 4727, 5817, 
+Bag: 7, 27, 70, 116, 154, 409, 4492, 4747, 6698, 7200, 
+Bag: 0, 1, 5, 8, 10, 12, 13, 14, 16, 17, 
+Bag: 9, 26, 29, 34, 38, 54, 61, 77, 83, 85, 
+Bag: 1052, 1159, 1700, 1847, 1899, 1957, 2324, 2463, 2475, 2487, 
+Bag: 
+Breadth-first search from vertex 4707 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 4
+level 2 vertices: 230
+level 3 vertices: 4167
+level 4 vertices: 1267
+level 5 vertices: 23
+
+Starting vertex for BFS is 563.
+
+Bag: 2036, 
+Bag: 7, 154, 178, 200, 1165, 292, 1064, 722, 1142, 1192, 
+Bag: 0, 5, 10, 12, 13, 16, 17, 18, 24, 27, 
+Bag: 1, 8, 9, 14, 20, 25, 26, 29, 34, 38, 
+Bag: 165, 310, 1052, 1159, 1702, 1750, 1847, 1899, 1957, 2324, 
+Bag: 
+Breadth-first search from vertex 563 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 1
+level 2 vertices: 91
+level 3 vertices: 3561
+level 4 vertices: 2003
+level 5 vertices: 35
+
+Starting vertex for BFS is 1225.
+
+Bag: 2365, 8049, 5115, 
+Bag: 7, 10, 27, 99, 18, 122, 289, 178, 330, 64, 
+Bag: 0, 1, 5, 8, 9, 12, 13, 14, 16, 17, 
+Bag: 25, 26, 29, 38, 55, 61, 66, 77, 83, 102, 
+Bag: 428, 1847, 1899, 2487, 3632, 4206, 4526, 5589, 6419, 6430, 
+Bag: 
+Breadth-first search from vertex 1225 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 3
+level 2 vertices: 370
+level 3 vertices: 4389
+level 4 vertices: 918
+level 5 vertices: 11
+
+Starting vertex for BFS is 1946.
+
+Bag: 154, 2036, 1328, 4365, 2071, 7943, 
+Bag: 7, 27, 33, 46, 60, 99, 4053, 4175, 4349, 4511, 
+Bag: 0, 1, 5, 8, 9, 10, 12, 13, 14, 16, 
+Bag: 38, 61, 102, 126, 131, 163, 165, 237, 290, 304, 
+Bag: 1847, 1899, 3632, 6430, 7373, 
+Bag: 
+Breadth-first search from vertex 1946 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 6
+level 2 vertices: 936
+level 3 vertices: 4290
+level 4 vertices: 454
+level 5 vertices: 5
+
+Starting vertex for BFS is 7014.
+
+Bag: 5049, 
+Bag: 1069, 1965, 1408, 2602, 3310, 3665, 3581, 7304, 6226, 4933, 
+Bag: 0, 7, 17, 18, 27, 46, 48, 58, 64, 120, 
+Bag: 1, 5, 8, 9, 10, 12, 13, 14, 16, 20, 
+Bag: 61, 126, 131, 165, 193, 201, 237, 304, 310, 316, 
+Bag: 1847, 3632, 6430, 
+Bag: 
+Breadth-first search from vertex 7014 reached 7 levels and 5696 vertices.
+level 0 vertices: 1
+level 1 vertices: 1
+level 2 vertices: 10
+level 3 vertices: 1248
+level 4 vertices: 4105
+level 5 vertices: 328
+level 6 vertices: 3
+
+Starting vertex for BFS is 7474.
+
+Bag: 680, 1388, 4087, 4771, 4549, 4939, 6268, 8043, 6854, 4933, 
+Bag: 0, 5, 7, 10, 16, 17, 18, 32, 35, 56, 
+Bag: 1, 8, 9, 13, 14, 20, 25, 26, 29, 34, 
+Bag: 165, 348, 428, 446, 499, 803, 913, 1052, 1062, 1159, 
+Bag: 1847, 3632, 
+Bag: 
+Breadth-first search from vertex 7474 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 15
+level 2 vertices: 2209
+level 3 vertices: 3328
+level 4 vertices: 137
+level 5 vertices: 2
+
+Starting vertex for BFS is 4109.
+
+Bag: 8075, 
+Bag: 216, 3109, 1069, 5901, 4933, 3523, 7304, 7637, 7640, 8064, 
+Bag: 0, 7, 12, 16, 18, 27, 46, 52, 64, 73, 
+Bag: 1, 5, 8, 9, 10, 13, 14, 17, 20, 24, 
+Bag: 61, 163, 193, 237, 260, 304, 310, 316, 318, 340, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 4109 reached 7 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 1
+level 2 vertices: 12
+level 3 vertices: 1801
+level 4 vertices: 3676
+level 5 vertices: 200
+level 6 vertices: 1
+
+Starting vertex for BFS is 6071.
+
+Bag: 292, 1431, 1927, 3677, 2320, 4406, 4820, 7617, 6011, 3614, 
+Bag: 0, 7, 12, 16, 17, 27, 35, 41, 47, 50, 
+Bag: 1, 5, 8, 9, 10, 13, 14, 20, 25, 26, 
+Bag: 61, 102, 165, 193, 310, 340, 370, 428, 446, 499, 
+Bag: 3632, 
+Bag: 
+Breadth-first search from vertex 6071 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 14
+level 2 vertices: 1803
+level 3 vertices: 3679
+level 4 vertices: 195
+level 5 vertices: 1
+
+Starting vertex for BFS is 4259.
+
+Bag: 680, 4365, 4140, 7725, 6117, 6202, 
+Bag: 5, 7, 8, 9, 12, 16, 2647, 4164, 4447, 5092, 
+Bag: 0, 1, 13, 14, 17, 18, 20, 25, 26, 29, 
+Bag: 38, 260, 304, 310, 348, 428, 446, 499, 511, 627, 
+Bag: 1847, 3632, 
+Bag: 
+Breadth-first search from vertex 4259 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 6
+level 2 vertices: 1879
+level 3 vertices: 3612
+level 4 vertices: 192
+level 5 vertices: 2
+
+Starting vertex for BFS is 6490.
+
+Bag: 141, 333, 298, 3392, 788, 328, 375, 5123, 4383, 2602, 
+Bag: 1, 7, 12, 16, 17, 27, 41, 48, 52, 64, 
+Bag: 0, 5, 8, 9, 10, 13, 14, 18, 20, 24, 
+Bag: 61, 102, 193, 304, 316, 318, 340, 348, 428, 446, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 6490 reached 6 levels and 5694 vertices.
+level 0 vertices: 1
+level 1 vertices: 33
+level 2 vertices: 2036
+level 3 vertices: 3471
+level 4 vertices: 152
+level 5 vertices: 1
+
+Starting vertex for BFS is 293.
+
+Bag: 3034, 5043, 6572, 5260, 
+Bag: 7, 60, 70, 88, 99, 134, 3057, 3503, 4155, 4717, 
+Bag: 0, 1, 5, 8, 9, 10, 12, 14, 16, 17, 
+Bag: 13, 26, 29, 38, 54, 61, 66, 77, 83, 102, 
+Bag: 428, 1847, 1899, 3632, 4206, 5589, 6430, 7629, 
+Bag: 
+Breadth-first search from vertex 293 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 4
+level 2 vertices: 368
+level 3 vertices: 4397
+level 4 vertices: 915
+level 5 vertices: 8
+
+Starting vertex for BFS is 4357.
+
+Bag: 3427, 6314, 4125, 
+Bag: 7, 18, 46, 64, 27, 50, 120, 74, 107, 73, 
+Bag: 0, 1, 5, 8, 9, 10, 12, 13, 14, 16, 
+Bag: 26, 38, 54, 61, 83, 102, 126, 165, 237, 260, 
+Bag: 1847, 1899, 3338, 6419, 6430, 
+Bag: 
+Breadth-first search from vertex 4357 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 3
+level 2 vertices: 794
+level 3 vertices: 4385
+level 4 vertices: 505
+level 5 vertices: 5
+
+Starting vertex for BFS is 791.
+
+Bag: 680, 4125, 4853, 
+Bag: 5, 7, 18, 10, 32, 27, 33, 41, 12, 35, 
+Bag: 0, 1, 8, 9, 13, 14, 16, 17, 20, 25, 
+Bag: 38, 165, 260, 310, 316, 348, 428, 446, 511, 532, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 791 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 3
+level 2 vertices: 1759
+level 3 vertices: 3721
+level 4 vertices: 207
+level 5 vertices: 1
+
+Starting vertex for BFS is 2136.
+
+Bag: 178, 1142, 317, 1388, 1256, 637, 680, 2114, 2401, 4361, 
+Bag: 0, 1, 5, 7, 9, 10, 16, 17, 20, 24, 
+Bag: 8, 13, 14, 18, 25, 26, 29, 34, 38, 40, 
+Bag: 310, 316, 428, 446, 511, 699, 803, 822, 913, 1052, 
+Bag: 3632, 
+Bag: 
+Breadth-first search from vertex 2136 reached 6 levels and 5694 vertices.
+level 0 vertices: 1
+level 1 vertices: 33
+level 2 vertices: 2398
+level 3 vertices: 3148
+level 4 vertices: 113
+level 5 vertices: 1
+
+Starting vertex for BFS is 6889.
+
+Bag: 680, 4074, 845, 4880, 4397, 1238, 2909, 4933, 6610, 4407, 
+Bag: 0, 5, 7, 10, 14, 16, 24, 27, 33, 46, 
+Bag: 1, 8, 9, 13, 17, 18, 20, 25, 26, 29, 
+Bag: 165, 310, 316, 428, 499, 726, 803, 913, 1052, 1062, 
+Bag: 1847, 3632, 
+Bag: 
+Breadth-first search from vertex 6889 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 15
+level 2 vertices: 2323
+level 3 vertices: 3226
+level 4 vertices: 126
+level 5 vertices: 2
+
+Starting vertex for BFS is 1118.
+
+Bag: 5409, 
+Bag: 99, 107, 141, 178, 154, 683, 292, 639, 589, 1431, 
+Bag: 0, 1, 5, 7, 9, 10, 12, 14, 16, 17, 
+Bag: 8, 13, 20, 26, 34, 38, 39, 54, 61, 66, 
+Bag: 428, 446, 822, 1470, 1492, 1692, 1702, 1847, 1899, 2129, 
+Bag: 
+Breadth-first search from vertex 1118 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 1
+level 2 vertices: 111
+level 3 vertices: 3656
+level 4 vertices: 1888
+level 5 vertices: 36
+
+Starting vertex for BFS is 2260.
+
+Bag: 953, 
+Bag: 46, 334, 178, 655, 507, 680, 482, 1297, 1370, 720, 
+Bag: 0, 5, 7, 10, 12, 14, 16, 17, 18, 24, 
+Bag: 1, 8, 9, 13, 20, 25, 26, 29, 34, 38, 
+Bag: 310, 428, 1052, 1159, 1899, 1917, 1945, 1957, 2324, 2463, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 2260 reached 7 levels and 5695 vertices.
+level 0 vertices: 1
+level 1 vertices: 1
+level 2 vertices: 108
+level 3 vertices: 3618
+level 4 vertices: 1928
+level 5 vertices: 38
+level 6 vertices: 1
+
+Starting vertex for BFS is 7595.
+
+Bag: 292, 691, 1408, 2290, 2482, 2571, 6117, 8045, 6229, 7592, 
+Bag: 5, 7, 8, 12, 16, 18, 39, 58, 95, 223, 
+Bag: 0, 1, 9, 10, 13, 14, 20, 24, 25, 26, 
+Bag: 61, 165, 290, 310, 316, 340, 348, 384, 428, 446, 
+Bag: 1847, 6430, 
+Bag: 
+Breadth-first search from vertex 7595 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 11
+level 2 vertices: 1690
+level 3 vertices: 3768
+level 4 vertices: 221
+level 5 vertices: 2
+
+Starting vertex for BFS is 5787.
+
+Bag: 4374, 
+Bag: 298, 907, 680, 1888, 3109, 1455, 1083, 5409, 8127, 6268, 
+Bag: 5, 7, 10, 12, 17, 18, 32, 33, 46, 50, 
+Bag: 0, 1, 8, 9, 13, 14, 16, 20, 25, 26, 
+Bag: 310, 316, 428, 446, 627, 645, 699, 822, 913, 1052, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 5787 reached 7 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 1
+level 2 vertices: 16
+level 3 vertices: 2190
+level 4 vertices: 3349
+level 5 vertices: 134
+level 6 vertices: 1
+
+Starting vertex for BFS is 1038.
+
+Bag: 154, 490, 248, 680, 942, 431, 376, 2320, 729, 1408, 
+Bag: 0, 1, 5, 7, 8, 9, 10, 12, 13, 14, 
+Bag: 20, 25, 26, 29, 36, 38, 53, 54, 55, 61, 
+Bag: 913, 1470, 1692, 1700, 1899, 1945, 1990, 2324, 2463, 2487, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 1038 reached 6 levels and 5696 vertices.
+level 0 vertices: 1
+level 1 vertices: 107
+level 2 vertices: 3548
+level 3 vertices: 2000
+level 4 vertices: 39
+level 5 vertices: 1
+
+Starting vertex for BFS is 7554.
+
+Bag: 959, 1347, 1707, 6746, 6072, 7637, 
+Bag: 7, 46, 73, 185, 248, 292, 3109, 3984, 4175, 4139, 
+Bag: 0, 1, 5, 8, 9, 10, 12, 13, 14, 16, 
+Bag: 26, 38, 61, 77, 83, 102, 103, 108, 114, 131, 
+Bag: 310, 428, 1847, 6430, 
+Bag: 
+Breadth-first search from vertex 7554 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 6
+level 2 vertices: 458
+level 3 vertices: 4391
+level 4 vertices: 832
+level 5 vertices: 4
+
+Starting vertex for BFS is 6260.
+
+Bag: 1928, 4397, 2760, 8064, 6399, 6315, 
+Bag: 7, 16, 18, 27, 52, 99, 4909, 4230, 4238, 5063, 
+Bag: 0, 1, 5, 8, 9, 10, 12, 13, 14, 17, 
+Bag: 61, 66, 102, 131, 163, 165, 193, 237, 253, 260, 
+Bag: 1847, 1899, 3632, 
+Bag: 
+Breadth-first search from vertex 6260 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 6
+level 2 vertices: 1225
+level 3 vertices: 4170
+level 4 vertices: 288
+level 5 vertices: 3
+
+Starting vertex for BFS is 1601.
+
+Bag: 35, 166, 46, 178, 292, 120, 73, 495, 248, 409, 
+Bag: 0, 1, 5, 7, 8, 10, 12, 13, 14, 16, 
+Bag: 9, 25, 26, 34, 38, 61, 83, 88, 92, 93, 
+Bag: 428, 1702, 1847, 1899, 2463, 2644, 3632, 4206, 6419, 6430, 
+Bag: 
+Breadth-first search from vertex 1601 reached 5 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 299
+level 2 vertices: 4291
+level 3 vertices: 1089
+level 4 vertices: 12
+
+Starting vertex for BFS is 5409.
+
+Bag: 99, 107, 141, 178, 154, 683, 292, 639, 589, 1431, 
+Bag: 0, 1, 5, 7, 9, 10, 14, 16, 17, 18, 
+Bag: 8, 13, 20, 26, 34, 38, 39, 54, 61, 66, 
+Bag: 428, 446, 822, 1470, 1492, 1692, 1702, 1847, 1899, 2129, 
+Bag: 
+Breadth-first search from vertex 5409 reached 5 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 111
+level 2 vertices: 3656
+level 3 vertices: 1889
+level 4 vertices: 36
+
+Starting vertex for BFS is 4231.
+
+Bag: 141, 178, 680, 393, 1072, 1388, 968, 1069, 2401, 2290, 
+Bag: 1, 5, 7, 10, 12, 18, 24, 27, 35, 39, 
+Bag: 0, 8, 9, 13, 14, 16, 17, 20, 25, 26, 
+Bag: 38, 165, 310, 348, 428, 446, 699, 822, 1052, 1061, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 4231 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 33
+level 2 vertices: 2450
+level 3 vertices: 3086
+level 4 vertices: 121
+level 5 vertices: 1
+
+Starting vertex for BFS is 7657.
+
+Bag: 4175, 
+Bag: 35, 48, 99, 73, 292, 401, 178, 106, 91, 696, 
+Bag: 0, 1, 5, 7, 8, 9, 10, 12, 13, 14, 
+Bag: 26, 34, 38, 54, 61, 77, 83, 102, 110, 111, 
+Bag: 428, 1692, 1847, 1899, 2487, 2644, 3327, 3411, 3632, 3843, 
+Bag: 
+Breadth-first search from vertex 7657 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 1
+level 2 vertices: 311
+level 3 vertices: 4288
+level 4 vertices: 1075
+level 5 vertices: 16
+
+Starting vertex for BFS is 2110.
+
+Bag: 141, 178, 154, 401, 269, 464, 655, 1077, 1662, 680, 
+Bag: 0, 5, 7, 8, 10, 12, 14, 16, 17, 18, 
+Bag: 1, 9, 13, 25, 26, 29, 38, 54, 55, 61, 
+Bag: 310, 428, 446, 822, 1052, 1159, 1513, 1750, 1945, 1957, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 2110 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 109
+level 2 vertices: 3541
+level 3 vertices: 1991
+level 4 vertices: 49
+level 5 vertices: 1
+
+Starting vertex for BFS is 577.
+
+Bag: 959, 1077, 2629, 6862, 
+Bag: 7, 73, 141, 185, 248, 292, 2320, 4010, 4245, 4650, 
+Bag: 0, 1, 5, 8, 9, 10, 12, 13, 14, 16, 
+Bag: 38, 54, 61, 83, 85, 102, 103, 126, 131, 159, 
+Bag: 428, 1847, 1899, 2463, 3338, 3632, 4206, 4526, 6419, 6430, 
+Bag: 
+Breadth-first search from vertex 577 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 4
+level 2 vertices: 402
+level 3 vertices: 4342
+level 4 vertices: 934
+level 5 vertices: 10
+
+Starting vertex for BFS is 3580.
+
+Bag: 832, 2923, 3458, 4365, 
+Bag: 7, 33, 35, 39, 73, 166, 4446, 4933, 5259, 4028, 
+Bag: 0, 1, 5, 8, 9, 10, 12, 13, 14, 16, 
+Bag: 38, 61, 102, 126, 131, 165, 193, 237, 290, 304, 
+Bag: 1899, 3632, 6430, 7373, 7629, 
+Bag: 
+Breadth-first search from vertex 3580 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 4
+level 2 vertices: 990
+level 3 vertices: 4277
+level 4 vertices: 416
+level 5 vertices: 5
+
+Starting vertex for BFS is 871.
+
+Bag: 154, 655, 309, 1069, 1648, 2585, 1191, 2760, 1221, 3458, 
+Bag: 0, 7, 14, 16, 18, 24, 27, 32, 33, 34, 
+Bag: 1, 5, 8, 9, 10, 12, 13, 17, 20, 25, 
+Bag: 61, 237, 304, 316, 340, 428, 446, 499, 740, 778, 
+Bag: 3632, 
+Bag: 
+Breadth-first search from vertex 871 reached 6 levels and 5695 vertices.
+level 0 vertices: 1
+level 1 vertices: 38
+level 2 vertices: 2536
+level 3 vertices: 3018
+level 4 vertices: 101
+level 5 vertices: 1
+
+Starting vertex for BFS is 574.
+
+Bag: 86, 680, 2585, 2290, 2189, 4406, 6944, 7843, 5108, 5413, 
+Bag: 5, 7, 10, 14, 16, 25, 27, 35, 39, 46, 
+Bag: 0, 1, 8, 9, 13, 17, 18, 20, 26, 29, 
+Bag: 165, 310, 316, 428, 446, 499, 532, 627, 699, 726, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 574 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 13
+level 2 vertices: 2190
+level 3 vertices: 3339
+level 4 vertices: 149
+level 5 vertices: 1
+
+Starting vertex for BFS is 7937.
+
+Bag: 248, 655, 301, 2098, 1601, 496, 3578, 7651, 3097, 5665, 
+Bag: 7, 12, 16, 17, 18, 27, 32, 35, 46, 48, 
+Bag: 0, 1, 5, 8, 9, 10, 13, 14, 20, 24, 
+Bag: 38, 61, 102, 126, 165, 193, 304, 310, 316, 318, 
+Bag: 1847, 1899, 3632, 6419, 6430, 
+Bag: 
+Breadth-first search from vertex 7937 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 14
+level 2 vertices: 1228
+level 3 vertices: 4136
+level 4 vertices: 309
+level 5 vertices: 5
+
+Starting vertex for BFS is 1662.
+
+Bag: 177, 1297, 2098, 1684, 2046, 3109, 2675, 2320, 6275, 3834, 
+Bag: 7, 12, 14, 16, 17, 18, 27, 32, 35, 47, 
+Bag: 0, 1, 5, 8, 9, 10, 13, 20, 24, 25, 
+Bag: 38, 61, 102, 237, 310, 316, 320, 321, 340, 428, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 1662 reached 6 levels and 5694 vertices.
+level 0 vertices: 1
+level 1 vertices: 17
+level 2 vertices: 1896
+level 3 vertices: 3604
+level 4 vertices: 175
+level 5 vertices: 1
+
+Starting vertex for BFS is 2711.
+
+Bag: 7, 265, 178, 680, 1167, 401, 2276, 1431, 714, 4303, 
+Bag: 0, 1, 5, 10, 12, 24, 27, 32, 35, 36, 
+Bag: 8, 9, 13, 14, 16, 17, 18, 20, 25, 26, 
+Bag: 310, 316, 428, 446, 913, 1052, 1159, 1199, 1458, 1470, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 2711 reached 6 levels and 5694 vertices.
+level 0 vertices: 1
+level 1 vertices: 38
+level 2 vertices: 2821
+level 3 vertices: 2741
+level 4 vertices: 92
+level 5 vertices: 1
+
+Starting vertex for BFS is 6634.
+
+Bag: 2619, 
+Bag: 5197, 6459, 5643, 
+Bag: 1, 16, 7, 67, 201, 178, 73, 177, 150, 273, 
+Bag: 0, 5, 8, 9, 10, 12, 14, 17, 18, 20, 
+Bag: 13, 38, 61, 83, 102, 114, 126, 149, 159, 163, 
+Bag: 428, 1847, 2463, 2487, 3632, 4206, 6430, 8025, 
+Bag: 
+Breadth-first search from vertex 6634 reached 7 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 1
+level 2 vertices: 3
+level 3 vertices: 599
+level 4 vertices: 4390
+level 5 vertices: 691
+level 6 vertices: 8
+
+Starting vertex for BFS is 2780.
+
+Bag: 680, 1705, 2320, 5459, 1811, 2760, 3211, 7637, 6206, 6229, 
+Bag: 5, 7, 10, 12, 18, 24, 27, 46, 52, 64, 
+Bag: 0, 1, 8, 9, 13, 14, 16, 17, 20, 25, 
+Bag: 193, 310, 316, 428, 446, 499, 812, 822, 1052, 1137, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 2780 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 13
+level 2 vertices: 2386
+level 3 vertices: 3177
+level 4 vertices: 114
+level 5 vertices: 1
+
+Starting vertex for BFS is 4971.
+
+Bag: 154, 2114, 1513, 4015, 7453, 6789, 3938, 4140, 4933, 
+Bag: 0, 7, 18, 27, 39, 46, 52, 64, 141, 223, 
+Bag: 1, 5, 8, 9, 10, 12, 13, 14, 16, 17, 
+Bag: 61, 77, 163, 165, 237, 290, 310, 318, 320, 340, 
+Bag: 1847, 3632, 4206, 6430, 
+Bag: 
+Breadth-first search from vertex 4971 reached 6 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 9
+level 2 vertices: 1208
+level 3 vertices: 4133
+level 4 vertices: 338
+level 5 vertices: 4
+
+Starting vertex for BFS is 6031.
+
+Bag: 166, 301, 238, 328, 560, 292, 936, 680, 755, 1187, 
+Bag: 0, 1, 5, 7, 10, 12, 14, 16, 17, 18, 
+Bag: 8, 9, 13, 20, 25, 26, 29, 34, 36, 38, 
+Bag: 316, 428, 1492, 1700, 1702, 1750, 1847, 1920, 1945, 1957, 
+Bag: 
+Breadth-first search from vertex 6031 reached 5 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 117
+level 2 vertices: 3603
+level 3 vertices: 1934
+level 4 vertices: 38
+
+Starting vertex for BFS is 1080.
+
+Bag: 120, 3677, 680, 6031, 4933, 6854, 5023, 7554, 6607, 6963, 
+Bag: 0, 1, 5, 7, 27, 35, 52, 56, 64, 67, 
+Bag: 8, 9, 13, 14, 17, 18, 20, 25, 26, 29, 
+Bag: 165, 310, 348, 428, 446, 499, 511, 662, 699, 803, 
+Bag: 1847, 3632, 
+Bag: 
+Breadth-first search from vertex 1080 reached 6 levels and 5694 vertices.
+level 0 vertices: 1
+level 1 vertices: 10
+level 2 vertices: 2138
+level 3 vertices: 3391
+level 4 vertices: 152
+level 5 vertices: 2
+
+Starting vertex for BFS is 6236.
+
+Bag: 2417, 4862, 
+Bag: 178, 292, 216, 369, 298, 619, 691, 1377, 680, 997, 
+Bag: 1, 5, 7, 10, 12, 16, 17, 18, 24, 27, 
+Bag: 0, 8, 9, 13, 14, 20, 25, 26, 38, 50, 
+Bag: 310, 428, 822, 1052, 1159, 1199, 1470, 1513, 1574, 1692, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 6236 reached 7 levels and 5693 vertices.
+level 0 vertices: 1
+level 1 vertices: 2
+level 2 vertices: 65
+level 3 vertices: 3021
+level 4 vertices: 2540
+level 5 vertices: 63
+level 6 vertices: 1
+
+Starting vertex for BFS is 3626.
+
+Bag: 680, 2173, 1077, 4125, 5520, 
+Bag: 5, 7, 18, 24, 46, 50, 2344, 4796, 5511, 5642, 
+Bag: 0, 1, 8, 9, 13, 14, 16, 17, 20, 25, 
+Bag: 38, 165, 260, 310, 316, 348, 428, 446, 511, 532, 
+Bag: 1847, 
+Bag: 
+Breadth-first search from vertex 3626 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 5
+level 2 vertices: 1841
+level 3 vertices: 3661
+level 4 vertices: 183
+level 5 vertices: 1
+
+Starting vertex for BFS is 748.
+
+Bag: 2365, 2437, 
+Bag: 7, 18, 27, 99, 298, 122, 166, 178, 330, 496, 
+Bag: 0, 1, 5, 8, 10, 12, 13, 14, 16, 17, 
+Bag: 9, 25, 26, 29, 38, 55, 61, 66, 77, 83, 
+Bag: 428, 1847, 1899, 2487, 3327, 3338, 3632, 4206, 4526, 5589, 
+Bag: 
+Breadth-first search from vertex 748 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 2
+level 2 vertices: 293
+level 3 vertices: 4313
+level 4 vertices: 1070
+level 5 vertices: 13
+
+Starting vertex for BFS is 7344.
+
+Bag: 292, 7725, 
+Bag: 7, 18, 9, 41, 27, 16, 17, 141, 134, 150, 
+Bag: 0, 1, 5, 8, 10, 12, 13, 14, 20, 24, 
+Bag: 38, 61, 102, 114, 126, 131, 159, 193, 235, 290, 
+Bag: 1847, 1899, 3632, 6430, 7373, 
+Bag: 
+Breadth-first search from vertex 7344 reached 6 levels and 5692 vertices.
+level 0 vertices: 1
+level 1 vertices: 2
+level 2 vertices: 838
+level 3 vertices: 4340
+level 4 vertices: 506
+level 5 vertices: 5
+
