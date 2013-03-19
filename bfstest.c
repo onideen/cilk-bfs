@@ -19,7 +19,7 @@ typedef struct graphstruct { // A graph in compressed-adjacency-list (CSR) form
 
 
 int read_edge_list (int **tailp, int **headp) {
-  int max_edges = 100000000;
+  int max_edges = 10000000;
   int nedges, nr, t, h;
   *tailp = (int *) calloc(max_edges, sizeof(int));
   *headp = (int *) calloc(max_edges, sizeof(int));
