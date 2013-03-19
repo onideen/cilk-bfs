@@ -1,25 +1,11 @@
-// BFSTEST : Test breadth-first search in a graph.
-// 
-// example: cat sample.txt | ./bfstest 1
-//
+#include "cilk-bfs.h"
 
-#include <iostream>
-#include "bag.cpp"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
+using namespace std;
 
-typedef struct graphstruct { // A graph in compressed-adjacency-list (CSR) form
-  int nv;            // number of vertices
-  int ne;            // number of edges
-  int *nbr;          // array of neighbors of all vertices
-  int *firstnbr;     // index in nbr[] of first neighbor of each vtx
-} graph;
 
 
 int read_edge_list (int **tailp, int **headp) {
-  int max_edges = 1000000;
+  int max_edges = 100000000;
   int nedges, nr, t, h;
   *tailp = (int *) calloc(max_edges, sizeof(int));
   *headp = (int *) calloc(max_edges, sizeof(int));
@@ -38,19 +24,29 @@ int read_edge_list (int **tailp, int **headp) {
 }
 
 
+
+
+
+
+
+
+
+
+
 graph * graph_from_edge_list (int *tail, int* head, int nedges) {
   graph *G;
-  int i, e, v, maxv;
+  int i, e, v;
   G = (graph *) calloc(1, sizeof(graph));
   G->ne = nedges;
-  maxv = 0;
 
+  cilk::reducer_max<int> maxv;
   // count vertices
-  for (e = 0; e < G->ne; e++) {
-    if (tail[e] > maxv) maxv = tail[e];
-    if (head[e] > maxv) maxv = head[e];
+  cilk_for (int k = 0; k < G->ne; k++) {
+    cilk::max_of(maxv, tail[k]);
+    cilk::max_of(maxv, head[k]);
   }
-  G->nv = maxv+1;
+
+  G->nv = maxv.get_value()+1;
   G->nbr = (int *) calloc(G->ne, sizeof(int));
   G->firstnbr = (int *) calloc(G->nv+1, sizeof(int));
 
