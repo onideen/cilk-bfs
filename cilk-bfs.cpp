@@ -152,7 +152,10 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
     cilk_sync;
     bag->printBag();
 
+    free(readBag);
+
     readBag = bag;
+
 
     levelsize[thislevel+1] = readBag->size();
     thislevel = thislevel+1;
