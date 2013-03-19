@@ -70,7 +70,7 @@ void walkNeighbourNodes(int v, VertexBag *writeBag, int *level, int *parent, int
   // /VertexBag writeBag = (VertexBag )
   for (e = G->firstnbr[v]; e < G->firstnbr[v+1]; e++) {
     w = G->nbr[e];          // w is the current neighbor of v
-    nedges++;
+    writeBag->addEdge();
     if (level[w] == -1) {   // w has not already been reached
       parent[w] = v;
       level[w] = thislevel+1;
@@ -156,7 +156,7 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
 
     free(readBag);
 
-    nedges += bag.getNedges();
+    nedges += bag->getNedges();
     readBag = bag;
 
 
@@ -181,7 +181,7 @@ int cilk_main (int argc, char* argv[]) {
   int nlevels;
   int startvtx;
   int i, v, reached;
-  RunDetails runDetails;
+  RunDetails* runDetails;
 
   if (argc == 2) {
     NBFS = atoi (argv[1]);

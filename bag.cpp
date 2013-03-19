@@ -34,6 +34,9 @@ public:
 	int getNedges(){
 		return nedges;
 	}
+	void addEdge() {
+		nedges++;
+	}
 
 	int peekMin();
 	int popMin();
