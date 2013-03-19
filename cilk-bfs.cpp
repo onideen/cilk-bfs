@@ -9,7 +9,7 @@ double getTimeInMicroSec() {
 }
 
 int read_edge_list (int **tailp, int **headp) {
-  int max_edges = 100000000;
+  int max_edges = 300000000;
   int nedges, nr, t, h;
   *tailp = (int *) calloc(max_edges, sizeof(int));
   *headp = (int *) calloc(max_edges, sizeof(int));
@@ -232,6 +232,10 @@ int cilk_main (int argc, char* argv[]) {
     }
     printf("\n");
     #endif
+
+    free(level);
+    free(levelsize);
+    free(parent);
   }
 
   #ifdef GRAPH500
