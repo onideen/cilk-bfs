@@ -127,7 +127,7 @@ VertexBag *splitAndMergeBag(VertexBag *inbag, int start, int end, int *level, in
 
 }
 
-void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **parentp, int* nedgesp) {
+void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **parentp, double* nedgest) {
   int *level, *levelsize, *parent;
   int thislevel;
   int back, front;
@@ -167,9 +167,8 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
     thislevel = thislevel+1;
   }
   *nlevelsp = thislevel;
-  *nedgesp = nedges;
+  *nedgest = nedges;
 }
-
 
 
 
@@ -205,14 +204,14 @@ int cilk_main (int argc, char* argv[]) {
 
   while (NBFS > 0) {
     double t1, t2;
-    int nedgest;
+    double nedgest;
 
     startvtx = rand() % G->nv;
     if (!hasNeighours(startvtx, G)){
       continue;
     }
     NBFS--;
-    printf("Starting %d on vertex for BFS is %d.  Runs left: %d\n\n",startvtx, NBFS);
+    printf("Starting on vertex for BFS is %d.  Runs left: %d\n\n",startvtx, NBFS);
 
     t1 = getTimeInMicroSec();
     bfs (startvtx, G, &level, &nlevels, &levelsize, &parent, &nedgest);
