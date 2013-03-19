@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include <reducer_max.h>
+#include <sys/time>
 
 typedef struct graphstruct { // A graph in compressed-adjacency-list (CSR) form
   int nv;            // number of vertices

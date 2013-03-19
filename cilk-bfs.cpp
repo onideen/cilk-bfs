@@ -1,5 +1,5 @@
 #include "cilk-bfs.h"
-
+#include "run_details.cpp"
 using namespace std;
 
 
@@ -174,21 +174,25 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
 int cilk_main (int argc, char* argv[]) {
   graph *G;
 
-  int NBFS;
+  int NBFS = 64;
   int *level, *levelsize, *parent;
   int *tail, *head;
   int nedges;
   int nlevels;
   int startvtx;
   int i, v, reached;
+  RunDetails runDetails;
 
   if (argc == 2) {
     NBFS = atoi (argv[1]);
-  } else {
-    printf("usage:   bfstest <numberOfSearches> < <edgelistfile>\n");
-    printf("example: cat sample.txt | ./bfstest 1\n");
-    exit(1);
-  }
+  } 
+  //else {
+//    printf("usage:   bfstest <numberOfSearches> < <edgelistfile>\n");
+//    printf("example: cat sample.txt | ./bfstest 1\n");
+//    exit(1);
+  //}
+
+  runDetails = new RunDetails(NBFS, 20, 16);
   nedges = read_edge_list (&tail, &head);
   G = graph_from_edge_list (tail, head, nedges);
   free(tail);
