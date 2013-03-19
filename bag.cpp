@@ -14,7 +14,7 @@ class VertexBag {
 
 	/* Where the min vertex is located */
 	int counter;
-
+	int nedges;
 	bool heap;
 
 public:
@@ -29,6 +29,10 @@ public:
 	*/
 	int size() {
 		return bagSize;
+	}
+
+	int getNedges(){
+		return nedges;
 	}
 
 	int peekMin();
@@ -168,6 +172,7 @@ void VertexBag::mergeBags(VertexBag *bag){
 
 	bagSize = i;
 	counter = 0;
+	nedges += bag->getNedges();
 
 	heap = false;	
 }

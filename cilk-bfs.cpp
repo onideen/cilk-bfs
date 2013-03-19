@@ -72,6 +72,7 @@ void walkNeighbourNodes(int v, VertexBag *writeBag, int *level, int *parent, int
   // /VertexBag writeBag = (VertexBag )
   for (e = G->firstnbr[v]; e < G->firstnbr[v+1]; e++) {
     w = G->nbr[e];          // w is the current neighbor of v
+    nedges++;
     if (level[w] == -1) {   // w has not already been reached
       parent[w] = v;
       level[w] = thislevel+1;
@@ -128,6 +129,7 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
   int *level, *levelsize, *parent;
   int thislevel;
   int back, front;
+  int nedges = 0;
   VertexBag *readBag = new VertexBag();
 
   int *queue;
@@ -153,7 +155,7 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
     bag = cilk_spawn splitAndMergeBag(readBag, 0, readBag->size() - 1, level, parent, thislevel, G);
     cilk_sync;
     bag->printBag();
-
+    nedges += bag.getNedges();
     readBag = bag;
 
     levelsize[thislevel+1] = readBag->size();
