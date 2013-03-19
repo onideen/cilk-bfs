@@ -234,6 +234,10 @@ int cilk_main (int argc, char* argv[]) {
     }
     printf("\n");
     #endif
+
+    free(level);
+    free(levelsize);
+    free(parent);
   }
 
 }
