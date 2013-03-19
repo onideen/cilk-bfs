@@ -2,7 +2,11 @@
 #include "run_details.cpp"
 using namespace std;
 
-
+double getTimeInMillis() {
+  struct timeval t;
+  gettimeofday(&t, NULL);
+  return t.tv_sec * 1000000.0+ t.tv_usec;  
+}
 
 int read_edge_list (int **tailp, int **headp) {
   int max_edges = 100000000;
@@ -167,9 +171,8 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
 }
 
 
-#ifdef GRAPH500
 
-#else
+
 
 int cilk_main (int argc, char* argv[]) {
   graph *G;
@@ -201,15 +204,25 @@ int cilk_main (int argc, char* argv[]) {
 
 
   while (NBFS > 0) {
-
+    double t1, t2;
     startvtx = rand() % G->nv;
     if (!hasNeighours(startvtx, G)){
       continue;
     }
     NBFS--;
+    #ifdef NORMAL
     printf("Starting vertex for BFS is %d.\n\n",startvtx);
-    bfs (startvtx, G, &level, &nlevels, &levelsize, &parent);
+    #endif
 
+    t1 = getTimeInMillis();
+    bfs (startvtx, G, &level, &nlevels, &levelsize, &parent);
+    t2 = getTimeInMillis();
+
+    printf("T1: %20.17e\n", t1);
+    printf("T1: %20.17e\n", t2);
+
+
+    #ifdef NORMAL
     reached = 0;
     for (i = 0; i < nlevels; i++) reached += levelsize[i];
     printf("Breadth-first search from vertex %d reached %d levels and %d vertices.\n",
@@ -220,8 +233,8 @@ int cilk_main (int argc, char* argv[]) {
       for (v = 0; v < G->nv; v++) printf("%6d%7d%7d\n", v, parent[v], level[v]);
     }
     printf("\n");
+    #endif
   }
 
 }
 
-#endif

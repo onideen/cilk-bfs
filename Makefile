@@ -4,10 +4,10 @@ bfstest: bfstest.c
 	gcc bfstest.c -o bfstest
 
 cilk-bfs: cilk-bfs.cpp 
-	cilk++ cilk-bfs.cpp -o bfs
+	cilk++ -DNORMAL cilk-bfs.cpp -o bfs
 
 bfs500: bfs500.cpp
-	cilk++ -DGRAPH500 bfs500.cpp -o bfs500
+	cilk++ -DGRAPH500 cilk-bfs.cpp -o bfs500
 
 rmat: rmat.c
 	cc -o rmat rmat.c
