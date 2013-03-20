@@ -246,7 +246,17 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
   *nedgest = nedges;
 }
 
+void display_help(){
+  printf("Usage: bfs [Options]\n" );
+  printf("BFS Search in Cilk\n");
 
+  printf("  -r     Reads from stdin\n");
+  printf("  -g     Generates random edges (default mode)\n");
+  printf("  -s     Scales, 2^Scales number of vertices (default 20)\n");
+  printf("  -e     Edgefactor, average number of endges for each vertex\n");
+  printf("  -n     The number of nodes to search from (default 64)\n");
+  printf("  -h     Prints this helpfile\n");
+}
 
 
 int cilk_main (int argc, char* argv[]) {
@@ -260,23 +270,58 @@ int cilk_main (int argc, char* argv[]) {
   int startvtx;
   int scale, edgefactor;
   int i, v, reached;
+  int opt = 0;
   RunDetails* runDetails;
   uint32_t M;
+  bool reading = false;
+  scale = 20;
+  edgefactor = 16;
 
-  if (argc == 2) {
-    NBFS = atoi (argv[1]);
-  } 
+  opt = getopt(argc, argv, optString);
+  while( opt != -1){
+    switch( opt){
+      case 'g':
+          reading = false;
+        break;
+      case 'h':
+        display_help();
+        return 0;
+      case 'r':
+        reading = true;
+        break;
+      case 's':
+         scale = atoi(optarg);
+        break;
+      case 'e':
+          edgefactor = atoi(optarg);
+        break;
+      case 'n':
+        //nuber of tests to run
+        NBFS = atoi(optarg);
+        break;
+      case '?':
+        printf("Invalid command line\n");
+        display_help();
+        exit(1);
+        break;
+    }
+    
+    opt = getopt(argc, argv, optString);
+
+  }
+  
+
+  printf("Options, Scale %d, Edgefactor: %d, Reading %d, NBFS %d \n", scale, edgefactor, reading, NBFS);
   //else {
 //    printf("usage:   bfstest <numberOfSearches> < <edgelistfile>\n");
 //    printf("example: cat sample.txt | ./bfstest 1\n");
 //    exit(1);
   //}
   //default values
-  scale = 20;
-  edgefactor = 16;
+
   M = (((uint32_t)1) << scale) * edgefactor;
 
-  runDetails = new RunDetails(NBFS, 20, 16);
+  runDetails = new RunDetails(NBFS, scale, edgefactor);
  // nedges = read_edge_list (&tail, &head);
   tail = (uint32_t *) malloc(M*sizeof(uint32_t));
   head = (uint32_t *) malloc(M*sizeof(uint32_t));

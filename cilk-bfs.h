@@ -13,6 +13,7 @@ typedef struct graphstruct { // A graph in compressed-adjacency-list (CSR) form
   int *firstnbr;     // index in nbr[] of first neighbor of each vtx
 } graph;
 
+static const char *optString = "hgrs:e:n:";
 
 void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **parentp);
 int read_edge_list (int **tailp, int **headp);
