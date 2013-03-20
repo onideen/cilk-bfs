@@ -1,6 +1,5 @@
 # Breadth First Search in Cilk++ 
 
-@@TOC@@
 
 
 ## Project Introduction
@@ -15,10 +14,34 @@ merge all our bags before doing the next level.
 Graph500 is a standarized messurement of how fast a progam is on a specific computer to run bfs for large graphs. To do this we implemented a bfs-algoritm in Cilk++ 
 
 
+## Table of Contents
+
+@@TOC@@
+
+
+
 ## BFS
 
-The breadth-first-search is an algorithm that explores the vertecies and edges of a graph, beginning from a particular starting vertex. This problem is really simple to do
-in a sequencial program, but is a lot harder in 
+The breadth-first-search is an algorithm that explores the vertecies and edges of a graph, beginning from a particular starting vertex. After bfs is done it returns a tree of the graph,
+which tells you how far away any node is from the root node.  
+To do this sequencial this is a rally simple problem since the algoritm is really easy:
+	procedure BFS(G,v):
+	create a queue Q
+	enqueue v onto Q
+	mark v
+	while Q is not empty:
+		t ← Q.dequeue()
+		if t is what we are looking for:
+			return t
+		for all edges e in G.adjacentEdges(t) do
+			u ← G.adjacentVertex(t,e)
+			if u is not marked:
+			mark u
+			enqueue u onto Q
+
+
+This problem is really simple to do
+in a sequencial program, but to do it in parallel is more complicated. The reason behind that is because bfs are making a tree
 
 
 ##Graph500
@@ -62,14 +85,8 @@ No Reducers.
 
 ## Problems
 
-  * Bags with more than 3500 elements
+	Timing 
 
 
+## Sources
 
-
-## Future
-
-  * Bags as heaps
-  * Figure out how to alloc 3500 elements
-  * Graph 500 implementation
-  * Cilkify make graph
