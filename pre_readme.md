@@ -27,6 +27,7 @@ which tells you how far away any node is from the root node.
 To do this sequencial this is a rally simple problem since the algoritm is really easy:
 
 	procedure BFS(G,v):
+	
 	create a queue Q
 	enqueue v onto Q
 	mark v
