@@ -61,7 +61,7 @@ public:
 };
 
 VertexBag::VertexBag() {
-	lengthOfArray = 1;
+	lengthOfArray = 128;
 	bagArray = new int[lengthOfArray];
 	counter = -1;
 	bagSize = 0;

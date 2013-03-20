@@ -10,8 +10,8 @@ double getTimeInMicroSec() {
 }
 
 double elapsedTime(struct timespec t1, struct timespec t2) {
-  double time1 = t1.tv_sec + t1.tv_nsec/1e9;
-  double time2 = t2.tv_sec + t2.tv_nsec/1e9;
+  double time1 = t1.tv_sec*1e3 + t1.tv_nsec/1e6;
+  double time2 = t2.tv_sec*1e3 + t2.tv_nsec/1e6;
   return (time2-time1);
 
 }
