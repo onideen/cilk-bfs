@@ -41,8 +41,14 @@ To do this sequencial this is a rally simple problem since the algoritm is reall
 				enqueue u onto Q
 
 
-This problem is really simple to do
-in a sequencial program, but to do it in parallel is more complicated. The reason behind that is because bfs are making a tree
+When you shall make this problem a parallel problem the main issue is how you shall manage the queue. When you in a sequential program can add a new node to the back of the queue 
+and keep going, you can't do the same in a parallel program since you have to keep track of which nodes that have been visited.  
+A high order approach to the problem is to split the queue between the processors and walk the neighbours of that vertex and put new obtained nodes into a shared next level queue
+
+
+
+
+?? ADD BFS EXPLAINATION IMAGES ??  
 
 
 ##Graph500
