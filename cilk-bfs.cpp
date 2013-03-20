@@ -1,11 +1,29 @@
 #include "cilk-bfs.h"
 #include "run_details.cpp"
+#define getRandom() (drand48())
 using namespace std;
 
 double getTimeInMillis() {
   struct timeval t;
   gettimeofday(&t, NULL);
   return t.tv_sec * 1000000.0+ t.tv_usec;  
+}
+
+
+
+void randPerm(int n, uint32_t perm[])
+{
+  int i, j, t;
+
+  for(i=0; i<n; i++)
+    perm[i] = i;
+
+  for(i=0; i<n; i++) {
+    j = rand()%(n-i)+i;
+    t = perm[j];
+    perm[j] = perm[i];
+    perm[i] = t;
+  }
 }
 
 int read_edge_list (int **tailp, int **headp) {
@@ -27,11 +45,69 @@ int read_edge_list (int **tailp, int **headp) {
   return nedges;
 }
 
+int generateEdges(int SCALE, int edgefactor, uint32_t *head, uint32_t *tail){ 
+  
+  uint32_t N =  (((uint32_t)1) << SCALE); // Set the number of vertices
+  
+  uint32_t M = (edgefactor * N); // Set the number of edges
+
+  double const A = 0.57;
+  double const B = 0.19;
+  double const C = 0.19;
+  
+
+
+  double const ab = (A+B); 
+  double const c_norm = C / (1 - ab);
+  double const a_norm = A / ab;
+
+  uint32_t ib;
+  uint32_t randNum;
+
+  // Set the seeds for the drand48 and the rand function
+  srand48((long int)time(NULL));
+  srand((long int)time(NULL));
+
+  int ii_bit, jj_bit;
+
+  uint32_t j;
+  printf("Generating edgelist with scale %d and edgefactor %d \n",SCALE,edgefactor );
+  for(ib = 1; ib <= SCALE; ib++) {
+      
+    for(j = 0; j < M; j++) {
+      ii_bit = (getRandom() > ab);
+      jj_bit = (getRandom() > (c_norm * ii_bit + a_norm * !(ii_bit)));
+      tail[j] += ((uint32_t)1 << (ib - 1)) * ii_bit;
+      head[j] += ((uint32_t)1 << (ib - 1)) * jj_bit;
+    }
+  }
+  
+  uint32_t * p = (uint32_t *) malloc(N*sizeof(uint32_t)); 
+  if(p == NULL) {
+    printf("Malloc failed for permutation array p\n");
+    exit(-1);
+  }
+  
+  // Permute the vertices
+  randPerm(N,p);
+
+  for(j = 0; j < M; j++) {
+    uint32_t index = tail[j];
+    tail[j] = p[index];
+    index = head[j];
+    head[j] = p[index];
+  }
+
+  free(p);  
+    
+
+  printf("Finished generating %d edges\n", M);
+  return M;
+}
 
 
 
-
-graph * graph_from_edge_list (int *tail, int* head, int nedges) {
+graph * graph_from_edge_list (uint32_t *tail, uint32_t *head, uint32_t nedges) {
   graph *G;
   int i, e, v;
   G = (graph *) calloc(1, sizeof(graph));
@@ -179,12 +255,14 @@ int cilk_main (int argc, char* argv[]) {
 
   int NBFS = 64;
   int *level, *levelsize, *parent;
-  int *tail, *head;
-  int nedges;
+  uint32_t *tail, *head;
+  uint32_t nedges;
   int nlevels;
   int startvtx;
+  int scale, edgefactor;
   int i, v, reached;
   RunDetails* runDetails;
+  uint32_t M;
 
   if (argc == 2) {
     NBFS = atoi (argv[1]);
@@ -194,9 +272,17 @@ int cilk_main (int argc, char* argv[]) {
 //    printf("example: cat sample.txt | ./bfstest 1\n");
 //    exit(1);
   //}
+  //default values
+  scale = 20;
+  edgefactor = 16;
+  M = (((uint32_t)1) << scale) * edgefactor;
 
   runDetails = new RunDetails(NBFS, 20, 16);
-  nedges = read_edge_list (&tail, &head);
+ // nedges = read_edge_list (&tail, &head);
+  tail = (uint32_t *) malloc(M*sizeof(uint32_t));
+  head = (uint32_t *) malloc(M*sizeof(uint32_t));
+
+  nedges = generateEdges(scale,edgefactor,head,tail);
   G = graph_from_edge_list (tail, head, nedges);
   free(tail);
   free(head);
