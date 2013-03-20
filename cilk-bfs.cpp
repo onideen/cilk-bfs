@@ -26,11 +26,11 @@ void randPerm(int n, uint32_t perm[])
   }
 }
 
-int read_edge_list (int **tailp, int **headp) {
+int read_edge_list (uint32_t **tailp, uint32_t **headp) {
   int max_edges = 300000000;
   int nedges, nr, t, h;
-  *tailp = (int *) calloc(max_edges, sizeof(int));
-  *headp = (int *) calloc(max_edges, sizeof(int));
+  *tailp = (uint32_t *) calloc(max_edges, sizeof(uint32_t));
+  *headp = (uint32_t *) calloc(max_edges, sizeof(uint32_t));
   nedges = 0;
   nr = scanf("%i %i",&t,&h);
   while (nr == 2) {
@@ -292,6 +292,8 @@ int cilk_main (int argc, char* argv[]) {
         return 0;
       case 'r':
         reading = true;
+        scale = 0;
+        edgefactor = 0;
         break;
       case 's':
          scale = atoi(optarg);
@@ -313,26 +315,21 @@ int cilk_main (int argc, char* argv[]) {
     opt = getopt(argc, argv, optString);
 
   }
-  
-
-  printf("Options, Scale %d, Edgefactor: %d, Reading %d, NBFS %d \n", scale, edgefactor, reading, NBFS);
-  //else {
-//    printf("usage:   bfstest <numberOfSearches> < <edgelistfile>\n");
-//    printf("example: cat sample.txt | ./bfstest 1\n");
-//    exit(1);
-  //}
-  //default values
 
   M = (((uint32_t)1) << scale) * edgefactor;
 
   runDetails = new RunDetails(NBFS, scale, edgefactor);
- // nedges = read_edge_list (&tail, &head);
-  tail = (uint32_t *) malloc(M*sizeof(uint32_t));
-  head = (uint32_t *) malloc(M*sizeof(uint32_t));
-
+  
+  if(reading){
+    nedges = read_edge_list (&tail, &head);
+  }else{
+    tail = (uint32_t *) malloc(M*sizeof(uint32_t));
+    head = (uint32_t *) malloc(M*sizeof(uint32_t));
+    nedges = generateEdges(scale,edgefactor,head,tail);  
+  }
+  
+  printf("Generating Graph\n");
   t1 = getTimeInMicroSec();
-  // nedges = read_edge_list (&tail, &head); 
-  nedges = generateEdges(scale,edgefactor,head,tail);
   G = graph_from_edge_list (tail, head, nedges);
   t2 = getTimeInMicroSec();
 
