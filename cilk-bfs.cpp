@@ -3,7 +3,7 @@
 #define getRandom() (drand48())
 using namespace std;
 
-double getTimeInMillis() {
+double getTimeInMicroSec() {
   struct timeval t;
   gettimeofday(&t, NULL);
   return t.tv_sec * 1000000.0+ t.tv_usec;  
@@ -203,7 +203,7 @@ VertexBag *splitAndMergeBag(VertexBag *inbag, int start, int end, int *level, in
 
 }
 
-void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **parentp) {
+void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **parentp, double* nedgest) {
   int *level, *levelsize, *parent;
   int thislevel;
   int back, front;
@@ -232,7 +232,6 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
 
     bag = cilk_spawn splitAndMergeBag(readBag, 0, readBag->size() - 1, level, parent, thislevel, G);
     cilk_sync;
-    bag->printBag();
 
     free(readBag);
 
@@ -244,8 +243,8 @@ void bfs (int s, graph *G, int **levelp, int *nlevelsp, int **levelsizep, int **
     thislevel = thislevel+1;
   }
   *nlevelsp = thislevel;
+  *nedgest = nedges;
 }
-
 
 
 
@@ -291,22 +290,20 @@ int cilk_main (int argc, char* argv[]) {
 
   while (NBFS > 0) {
     double t1, t2;
+    double nedgest;
+
     startvtx = rand() % G->nv;
     if (!hasNeighours(startvtx, G)){
       continue;
     }
     NBFS--;
-    #ifdef NORMAL
-    printf("Starting vertex for BFS is %d.\n\n",startvtx);
-    #endif
+    printf("Starting on vertex for BFS is %d.  Runs left: %d\n\n",startvtx, NBFS);
 
-    t1 = getTimeInMillis();
-    bfs (startvtx, G, &level, &nlevels, &levelsize, &parent);
-    t2 = getTimeInMillis();
+    t1 = getTimeInMicroSec();
+    bfs (startvtx, G, &level, &nlevels, &levelsize, &parent, &nedgest);
+    t2 = getTimeInMicroSec();
 
-    printf("T1: %20.17e\n", t1);
-    printf("T1: %20.17e\n", t2);
-
+    runDetails->addRun(startvtx, t2-t1, nedgest, nlevels);
 
     #ifdef NORMAL
     reached = 0;
@@ -325,6 +322,11 @@ int cilk_main (int argc, char* argv[]) {
     free(levelsize);
     free(parent);
   }
+
+  #ifdef GRAPH500
+    runDetails->printStatistics();
+
+  #endif
 
 }
 

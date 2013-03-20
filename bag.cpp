@@ -14,7 +14,7 @@ class VertexBag {
 
 	/* Where the min vertex is located */
 	int counter;
-	int nedges;
+	double nedges;
 	bool heap;
 
 public:
@@ -31,7 +31,7 @@ public:
 		return bagSize;
 	}
 
-	int getNedges(){
+	double getNedges(){
 		return nedges;
 	}
 	void addEdge() {
@@ -66,6 +66,7 @@ VertexBag::VertexBag() {
 	counter = -1;
 	bagSize = 0;
 	heap = true;
+	nedges = 0;
 }
 
 void VertexBag::printBag(){
