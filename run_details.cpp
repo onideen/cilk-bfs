@@ -44,7 +44,6 @@ public:
 	void sortArrays();
 	
 
-
 	void printStatistics();
 };
 
@@ -67,10 +66,10 @@ void RunDetails::addRun(double startvtx, double runtime, double nedges, double d
 	this->runtime[counter] = runtime;
 	this->nedges[counter] = nedges;
 	this->depth[counter] = depth;
-	this->TEPS[counter++] = nedges/runtime * 1e3;
+	this->TEPS[counter++] = nedges/runtime * 1e6;
 }
 
-
+	
 void RunDetails::addConstructionTime(double constructionTime) {
 	this->constructionTime = constructionTime;
 }
@@ -154,32 +153,32 @@ void RunDetails::printStatistics(){
 
 	sortArrays();
 
-	printf("SCALE: %d\n", SCALE);
-	printf("edgefactor: %d\n", edgefactor);
-  	printf("NBFS: %d\n", counter);
+	printf("SCALE:\t\t\t%d\n", SCALE);
+	printf("edgefactor:\t\t%d\n", edgefactor);
+  	printf("NBFS:\t\t\t%d\n\n", counter);
 
-  	printf("construction_time: %20.17e\n", constructionTime); 
+  	printf("construction_time:\t%20.17eus\n\n", constructionTime); 
 
-  	printf("min_time: %20.17e\n", getMin(runtime));
-  	printf("firstquartile_time: %20.17e\n", getFirstQuartile(runtime));
-  	printf("median_time: %20.17e\n", getMedian(runtime));
-  	printf("lastquartile_time: %20.17e\n", getLastQuartile(runtime));
-  	printf("max_time: %20.17e\n", getMax(runtime));
-  	printf("mean_time: %20.17e\n", getMean(runtime));
+  	printf("min_time:\t\t%20.17eus\n", getMin(runtime));
+  	printf("firstquartile_time:\t%20.17eus\n", getFirstQuartile(runtime));
+  	printf("median_time:\t\t%20.17eus\n", getMedian(runtime));
+  	printf("lastquartile_time:\t%20.17eus\n", getLastQuartile(runtime));
+  	printf("max_time:\t\t%20.17eus\n", getMax(runtime));
+  	printf("mean_time:\t\t%20.17eus\n\n", getMean(runtime));
 
-  	printf("min_nedges: %20.17e\n", getMin(nedges));
-  	printf("firstquartile_nedges: %20.17e\n", getFirstQuartile(nedges));
-  	printf("median_nedges: %20.17e\n", getMedian(nedges));
-  	printf("lastquartile_nedges: %20.17e\n", getLastQuartile(nedges));
-  	printf("max_nedges: %20.17e\n", getMax(nedges));
-  	printf("mean_nedges: %20.17e\n", getMean(nedges));
+  	printf("min_nedges:\t\t%20.17e\n", getMin(nedges));
+  	printf("firstquartile_nedges:\t%20.17e\n", getFirstQuartile(nedges));
+  	printf("median_nedges:\t\t%20.17e\n", getMedian(nedges));
+  	printf("lastquartile_nedges:\t%20.17e\n", getLastQuartile(nedges));
+  	printf("max_nedges:\t\t%20.17e\n", getMax(nedges));
+  	printf("mean_nedges:\t\t%20.17e\n\n", getMean(nedges));
 
 
-  	printf("min_TEPS: %20.17eTEPS\n", getMin(TEPS));
-  	printf("firstquartile_TEPS: %20.17eTEPS\n", getFirstQuartile(TEPS));
-  	printf("median_TEPS: %20.17eTEPS\n", getMedian(TEPS));
-  	printf("lastquartile_TEPS: %20.17eTEPS\n", getLastQuartile(TEPS));
-  	printf("max_TEPS: %20.17eTEPS\n", getMax(TEPS));
-  	printf("mean_TEPS: %20.17eTEPS\n", getMean(TEPS));
+  	printf("min_TEPS:\t\t%20.17eTEPS\n", getMin(TEPS));
+  	printf("firstquartile_TEPS:\t%20.17eTEPS\n", getFirstQuartile(TEPS));
+  	printf("median_TEPS:\t\t%20.17eTEPS\n", getMedian(TEPS));
+  	printf("lastquartile_TEPS:\t%20.17eTEPS\n", getLastQuartile(TEPS));
+  	printf("max_TEPS:\t\t%20.17eTEPS\n", getMax(TEPS));
+  	printf("mean_TEPS:\t\t%20.17eTEPS\n", getMean(TEPS));
 
 }
