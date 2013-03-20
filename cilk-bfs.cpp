@@ -9,7 +9,12 @@ double getTimeInMicroSec() {
   return t.tv_sec * 1000000.0 + t.tv_usec;  
 }
 
+double elapsedTime(struct timespec t1, struct timespec t2) {
+  double time1 = t1.tv_sec + t1.tv_nsec/1e9;
+  double time2 = t2.tv_sec + t2.tv_nsec/1e9;
+  return (time2-time1);
 
+}
 
 void randPerm(int n, uint32_t perm[])
 {
@@ -271,7 +276,9 @@ int cilk_main (int argc, char* argv[]) {
   int scale, edgefactor;
   int i, v, reached;
   int opt = 0;
-  double t1, t2;
+
+  struct timespec res, t1, t2;
+
 
 
 
@@ -323,6 +330,8 @@ int cilk_main (int argc, char* argv[]) {
   //}
   //default values
 
+
+
   M = (((uint32_t)1) << scale) * edgefactor;
 
   runDetails = new RunDetails(NBFS, scale, edgefactor);
@@ -330,13 +339,15 @@ int cilk_main (int argc, char* argv[]) {
   tail = (uint32_t *) malloc(M*sizeof(uint32_t));
   head = (uint32_t *) malloc(M*sizeof(uint32_t));
 
-  t1 = getTimeInMicroSec();
-  // nedges = read_edge_list (&tail, &head); 
   nedges = generateEdges(scale,edgefactor,head,tail);
-  G = graph_from_edge_list (tail, head, nedges);
-  t2 = getTimeInMicroSec();
 
-  runDetails->addConstructionTime(t2-t1);
+  clock_gettime(CLOCK_MONOTONIC, &t1);
+
+  G = graph_from_edge_list (tail, head, nedges);
+  clock_gettime(CLOCK_MONOTONIC, &t2);
+
+
+  runDetails->addConstructionTime(elapsedTime(t1,t2));
 
   free(tail);
   free(head);
@@ -353,11 +364,11 @@ int cilk_main (int argc, char* argv[]) {
     NBFS--;
     printf("Starting on vertex for BFS is %d.  Runs left: %d\n\n",startvtx, NBFS);
 
-    t1 = getTimeInMicroSec();
+    clock_gettime(CLOCK_MONOTONIC, &t1);
     bfs (startvtx, G, &level, &nlevels, &levelsize, &parent, &nedgest);
-    t2 = getTimeInMicroSec();
+    clock_gettime(CLOCK_MONOTONIC, &t2);
 
-    runDetails->addRun(startvtx, t2-t1, nedgest, nlevels);
+    runDetails->addRun(startvtx, elapsedTime(t1, t2), nedgest, nlevels);
 
     #ifdef NORMAL
     reached = 0;
