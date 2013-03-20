@@ -6,7 +6,7 @@ using namespace std;
 double getTimeInMicroSec() {
   struct timeval t;
   gettimeofday(&t, NULL);
-  return t.tv_sec * 1000000.0+ t.tv_usec;  
+  return t.tv_sec * 1000000.0 + t.tv_usec;  
 }
 
 
@@ -271,6 +271,10 @@ int cilk_main (int argc, char* argv[]) {
   int scale, edgefactor;
   int i, v, reached;
   int opt = 0;
+  double t1, t2;
+
+
+
   RunDetails* runDetails;
   uint32_t M;
   bool reading = false;
@@ -326,15 +330,20 @@ int cilk_main (int argc, char* argv[]) {
   tail = (uint32_t *) malloc(M*sizeof(uint32_t));
   head = (uint32_t *) malloc(M*sizeof(uint32_t));
 
+  t1 = getTimeInMicroSec();
+  // nedges = read_edge_list (&tail, &head); 
   nedges = generateEdges(scale,edgefactor,head,tail);
   G = graph_from_edge_list (tail, head, nedges);
+  t2 = getTimeInMicroSec();
+
+  runDetails->addConstructionTime(t2-t1);
+
   free(tail);
   free(head);
   print_CSR_graph (G);
 
 
   while (NBFS > 0) {
-    double t1, t2;
     double nedgest;
 
     startvtx = rand() % G->nv;
