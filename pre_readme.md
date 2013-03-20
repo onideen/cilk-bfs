@@ -11,8 +11,7 @@ the nodes we wanted to traverse into a bag in each thread walk the nodes and add
 merge all our bags before doing the next level.
 
 
-Graph500 is a standarized messurement of how fast a progam is on a specific computer to run bfs for large graphs. To do this we implemented a bfs-algoritm in Cilk++ 
-
+A nicer version of this file can be found on http://github.com/vegaen/cilk-bfs
 
 ## Table of Contents
 
@@ -44,6 +43,7 @@ To do this sequencial this is a rally simple problem since the algoritm is reall
 When you shall make this problem a parallel problem the main issue is how you shall manage the queue. When you in a sequential program can add a new node to the back of the queue 
 and keep going, you can't do the same in a parallel program since you have to keep track of which nodes that have been visited.  
 A high order approach to the problem is to split the queue between the processors and walk the neighbours of that vertex and put new obtained nodes into a shared next level queue
+and wait for every processor to be finished before you start on the next level. 
 
 
 
@@ -53,10 +53,19 @@ A high order approach to the problem is to split the queue between the processor
 
 ##Graph500
 
+Graph500 is a standarized messurement of how fast a progam is on a specific computer to run bfs for large graphs. To do this we implemented a bfs-algoritm in Cilk++ 
+
+
 
 ## Implementation
 
+
+### Bag Structure
+
+
 No Reducers.
+
+
 
 ### Bag Structure
 
