@@ -38,6 +38,8 @@ public:
 	double getMax(double *array);
 	double getMean(double *array);
 
+
+	double microSecToSec(double microSec);
 	double *sortArray(double *array);
 	void sortArrays();
 	
@@ -144,6 +146,9 @@ void RunDetails::sortArrays() {
 	TEPS = sortArray(TEPS);
 }
 
+double RunDetails::microSecToSec(double microSec) {
+	return microSec/1000000.0;
+}
 
 void RunDetails::printStatistics(){
 

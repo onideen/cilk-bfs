@@ -5,7 +5,7 @@ using namespace std;
 double getTimeInMicroSec() {
   struct timeval t;
   gettimeofday(&t, NULL);
-  return t.tv_sec * 1000000.0+ t.tv_usec;  
+  return t.tv_sec * 1000000.0 + t.tv_usec;  
 }
 
 int read_edge_list (int **tailp, int **headp) {
