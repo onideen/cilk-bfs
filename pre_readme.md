@@ -1,18 +1,6 @@
 # Breadth First Search in Cilk++ 
 
-- [Breadth First Search in Cilk++](#breadth-first-search-in-cilk)
-    - [Project Introduction](#project-introduction)
-    - [BFS](#bfs)
-    - [Graph500](#graph500)
-    - [Implementation](#implementation)
-        - [Bag Structure](#bag-structure)
-    - [Build and Run](#build-and-run)
-    - [Results](#results)
-    - [Problems](#problems)
-    - [Conclusion](#conclusion)
-    - [Future Work](#future-work)
-    - [Problems](#problems)
-    - [Future](#future)
+@@TOC@@
 
 
 ## Project Introduction
