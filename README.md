@@ -38,19 +38,20 @@ Graph500 is a standarized messurement of how fast a progam is on a specific comp
 The breadth-first-search is an algorithm that explores the vertecies and edges of a graph, beginning from a particular starting vertex. After bfs is done it returns a tree of the graph,
 which tells you how far away any node is from the root node.  
 To do this sequencial this is a rally simple problem since the algoritm is really easy:
+
 	procedure BFS(G,v):
-	create a queue Q
-	enqueue v onto Q
-	mark v
-	while Q is not empty:
-		t ← Q.dequeue()
-		if t is what we are looking for:
-			return t
-		for all edges e in G.adjacentEdges(t) do
-			u ← G.adjacentVertex(t,e)
-			if u is not marked:
-			mark u
-			enqueue u onto Q
+		create a queue Q
+		enqueue v onto Q
+		mark v
+		while Q is not empty:
+			t ← Q.dequeue()
+			if t is what we are looking for:
+				return t
+			for all edges e in G.adjacentEdges(t) do
+				u ← G.adjacentVertex(t,e)
+				if u is not marked:
+				mark u
+				enqueue u onto Q
 
 
 This problem is really simple to do

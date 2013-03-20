@@ -26,15 +26,15 @@ The breadth-first-search is an algorithm that explores the vertecies and edges o
 which tells you how far away any node is from the root node.  
 To do this sequencial this is a rally simple problem since the algoritm is really easy:
 
-	**procedure** BFS(G,v):
+	procedure BFS(G,v):
 		create a queue Q
 		enqueue v onto Q
 		mark v
-		**while** Q is not empty:
+		while Q is not empty:
 			t ← Q.dequeue()
-			**if** t is what we are looking for:
+			if t is what we are looking for:
 				return t
-			**for** all edges e in G.adjacentEdges(t) do
+			for all edges e in G.adjacentEdges(t) do
 				u ← G.adjacentVertex(t,e)
 				if u is not marked:
 				mark u
