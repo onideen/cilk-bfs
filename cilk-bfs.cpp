@@ -183,6 +183,9 @@ int cilk_main (int argc, char* argv[]) {
   int nlevels;
   int startvtx;
   int i, v, reached;
+  double t1, t2;
+
+
   RunDetails* runDetails;
 
   if (argc == 2) {
@@ -196,14 +199,19 @@ int cilk_main (int argc, char* argv[]) {
 
   runDetails = new RunDetails(NBFS, 20, 16);
   nedges = read_edge_list (&tail, &head);
+  
+  t1 = getTimeInMicroSec();
   G = graph_from_edge_list (tail, head, nedges);
+  t2 = getTimeInMicroSec();
+
+  runDetails->addConstructionTime(t2-t1);
+
   free(tail);
   free(head);
   print_CSR_graph (G);
 
 
   while (NBFS > 0) {
-    double t1, t2;
     double nedgest;
 
     startvtx = rand() % G->nv;
