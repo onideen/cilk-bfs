@@ -21,30 +21,19 @@ void randPerm(int n, int perm[])
 	}
 }
 
-int main(int argc, char ** argv) {
-	
-	if(argc != 3) {
-		printf("Usage : %s <SCALE> <edgefactor>\nThe number of vertices is N = 2^SCALE, and  the number of edges is M = edgefactor*N\n", argv[0]);
-		exit(-1);
-	}
 
-	int SCALE = atoi(argv[1]);
-	double edgefactor = atof(argv[2]);
+
+int generateEdges(int SCALE, int edgefactor, uint32_t *head, uint32_t *tail){	
+	 
+	uint32_t N =  (((uint32_t)1) << SCALE); // Set the number of vertices
 	
-	// Set the number of vertices 
-	uint32_t N =  (((uint32_t)1) << SCALE);
-	
-	// Set the number of edges
-	uint32_t M = (edgefactor * N);
+	uint32_t M = (edgefactor * N); // Set the number of edges
 
 	double const A = 0.57;
 	double const B = 0.19;
 	double const C = 0.19;
-
-	uint32_t *ij[2];
 	
-	ij[0] = (uint32_t *) malloc(M*sizeof(uint32_t));
-	ij[1] = (uint32_t *) malloc(M*sizeof(uint32_t));
+
 
 	double const ab = (A+B); 
 	double const c_norm = C / (1 - ab);
@@ -65,8 +54,8 @@ int main(int argc, char ** argv) {
 		for(j = 0; j < M; j++) {
 			ii_bit = (getRandom() > ab);
 			jj_bit = (getRandom() > (c_norm * ii_bit + a_norm * !(ii_bit)));
-			ij[0][j] += ((uint32_t)1 << (ib - 1)) * ii_bit;
-			ij[1][j] += ((uint32_t)1 << (ib - 1)) * jj_bit;
+			tail[j] += ((uint32_t)1 << (ib - 1)) * ii_bit;
+			head[j] += ((uint32_t)1 << (ib - 1)) * jj_bit;
 		}
 	}
 	
@@ -80,38 +69,36 @@ int main(int argc, char ** argv) {
 	randPerm(N,p);
 
 	for(j = 0; j < M; j++) {
-		uint32_t index = ij[0][j];
-		ij[0][j] = p[index];
-		index = ij[1][j];
-		ij[1][j] = p[index];
+		uint32_t index = tail[j];
+		tail[j] = p[index];
+		index = head[j];
+		head[j] = p[index];
 	}
 
 	free(p);	
-	p = (uint32_t *) malloc(M*sizeof(uint32_t)); 
-
-	// Permute the edges
-	randPerm(M,p);	
-
-	// Print out the final matrix in the edge format or MATLAB format
-	#ifdef MATLAB
-	printf("function [MAT] = rmat()\n\n");
-	printf("MAT = zeros(%u,%u);\n",N,N);
-	#else
-	printf("0 %u %u\n",N,M);
-	#endif
-	
-	for(j = 0; j < M; j++) {
-		uint32_t index = p[j];
 		
-		#ifdef MATLAB
-			printf("\tMAT(%u,%u) = 1;\n",ij[0][index]+1,ij[1][index]+1);
-			printf("\tMAT(%u,%u) = 1;\n",ij[1][index]+1,ij[0][index]+1);
-		#else
-			printf("%u %u\n",ij[0][index],ij[1][index]);
-		#endif
-	}
+
 	
-	#ifdef MATLAB
-		printf("\nend\n");
-	#endif
+	return M;
+}
+
+int main(int argc, char ** argv) {
+	uint32_t *head, *tail;
+	uint32_t j;
+
+	uint32_t n = (((uint32_t)1) << 14);
+	uint32_t M = n * 16;
+	tail = (uint32_t *) malloc(M*sizeof(uint32_t));
+	head = (uint32_t *) malloc(M*sizeof(uint32_t));
+	
+	generateEdges(14,16,head,tail);
+
+
+
+	for(j = 0; j < M; j++) {
+		uint32_t index = j;
+		
+		
+		printf("%u %u\n",tail[index],head[index]);
+	}
 }
