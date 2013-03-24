@@ -20,6 +20,8 @@ bfs500
 rmat
 
 
+*.pdf
+
 #testfiles
 varad.txt
 test.rmat

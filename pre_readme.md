@@ -52,13 +52,19 @@ and wait for every processor to be finished before you start on the next level.
 
 
 ##Graph500
-
-Graph500 is a standarized messurement of how fast a progam is on a specific computer to run bfs for large graphs. To do this we implemented a bfs-algoritm in Cilk++ 
-
+Graph500 is a rating of supercomputer system, with focus on Data intensive loads. Instead of counting double precision floating-point as the benchmark, Graph500 are using a breadth-first
+Search as the benchmark. In the benchmark it is two computation kernels. The first kernel computes the time it takes to generate the graph and compress it into 
+sparse structures CSR or CSC (Compressed Sparse Row/Column). The second kernel does a parallel BFS of 64 random vertecies per run.  
+Six possible scales, or sizes, are defined:
+ * __Toy__: 2^26 vertices -> 17 GB of RAM
+ * __Mini__: 2^29 -> 137 GB of RAM
+ * __Small__: 2^32 -> 1,1 TB of RAM
+ * __Medium__: 2^36 -> 17,6 TB of RAM)
+ * __Large__: 2^39 -> 140 TB
+ * __Huge__: 2^42; 1.1 PB of RAM    
 
 
 ## Implementation
-
 
 ### Bag Structure
 
