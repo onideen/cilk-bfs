@@ -79,6 +79,20 @@ No Reducers.
 
 `make`
 
+This will provide 2 files, bfs and bfs500.  
+bfs500 will output only which nodes it searches from and statistics when its finished running.
+Bfs will also gives a output containing the number of vertecies found on different levels and some other debuging info, but no statistics.
+
+Usage: bfs [Options]
+  BFS Search in Cilk
+
+    -r     Reads from stdin
+    -g     Generates random edges (default mode)
+    -s     Scales, 2^Scales number of vertices (default 20)
+    -e     Edgefactor, average number of endges for each vertex
+    -n     The number of nodes to search from (default 64)
+    -h     Prints this helpfile
+
 
 ## Results
 
@@ -87,6 +101,7 @@ No Reducers.
 
 ## Problems
 
+	Timing 
 
 
 
@@ -95,13 +110,8 @@ No Reducers.
 
 
 ## Future Work
-
-
-
-
-## Problems
-
-	Timing 
+	Validate
+	
 
 
 ## Sources
