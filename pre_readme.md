@@ -1,4 +1,5 @@
 # Breadth First Search in Cilk++ 
+	by Vegar Engen (vegaen) and Arne Dahl Bjune (arnedab)
 
 
 
@@ -113,14 +114,6 @@ Overall our bag structure is fast enough.
 No Reducers.
 
 
-
-
-
-
-
-
-
-
 ## Build and Run
 
 `make`
@@ -160,6 +153,7 @@ We can se that the performace increases as the problem size increases except for
 ### Teps vs Scale and Proccessor Count ###
 In this graph we look at how TEPS change as both problem size and number of processors double for each datapoint. Scale ranges from 21 to 24 and proccessors from 1 to 8.
 //insert scale_nproc_teps.png
+Since both increasing scale and increasing processor count increases performace this graph shows as expected a better than linear increase in performance.
 
 ### Example Output ###
 This is a example output for run with scale 26, edgefactor 26 on a single core on Triton.
@@ -192,7 +186,7 @@ This is a example output for run with scale 26, edgefactor 26 on a single core o
 
 ## Problems
   * We had a lot of problems when we tried to take the time of the graph search and since all the searches was sub-second, it was hard to get an accurate time. 
-	Timing 
+  * We also had problems getting time on the large memory nodes on Triton to run on lager scale problems. 
 
 
 
@@ -201,8 +195,8 @@ This is a example output for run with scale 26, edgefactor 26 on a single core o
 
 
 ## Future Work
-	Our current code does not verify that the result from the bfs search is correct. Since the graph problems is very large searching the graph to get an guaranteed verification. The suggested way to verify the graph search is to
-	 // needs completions
+	Our current code does not verify that the result from the bfs search is correct. Since the graph problems is very large searching the graph to get an guaranteed verification. The suggested way to verify the graph search is to check that the BFS tree that what found contains no cycles. That the vertecies only has edges to vertecies that has a level that is either one higher or one lower. And that a vertex has a edge to its parrent in the original edge list.
+
 
 
 

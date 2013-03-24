@@ -1,0 +1,810 @@
+Generating edgelist with scale 26 and edgefactor 16 
+Finished generating 1073741824 edges
+Generating Graph
+
+Graph has 67106908 vertices and 1073741824 edges.
+firstnbr = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ...
+nbr = 58177450 1810944 20010568 19180005 43617017 59918406 1810944 19180005 8409946 52613119 49041879 7137488 19914876 3812386 62521258 18078865 34082066 66225467 30864342 38476522 44412513 9668944 52356385 13181699 10539416 21686298 40125468 1288505 36776176 36291243 58177450 22979949 3812386 27445890 639510 50607446 25502844 16375765 23292138 19300646 32932973 1505685 9678816 15655546 1464794 18731665 40125468 5040062 59995845 8587325 ...
+
+Starting on vertex for BFS is 39195855.  Runs left: 63
+
+Starting on vertex for BFS is 45527086.  Runs left: 62
+
+Starting on vertex for BFS is 15644699.  Runs left: 61
+
+Starting on vertex for BFS is 32806636.  Runs left: 60
+
+Starting on vertex for BFS is 58196151.  Runs left: 59
+
+Starting on vertex for BFS is 7088558.  Runs left: 58
+
+Starting on vertex for BFS is 22501509.  Runs left: 57
+
+Starting on vertex for BFS is 26974634.  Runs left: 56
+
+Starting on vertex for BFS is 5104599.  Runs left: 55
+
+Starting on vertex for BFS is 14035285.  Runs left: 54
+
+Starting on vertex for BFS is 58912948.  Runs left: 53
+
+Starting on vertex for BFS is 4221170.  Runs left: 52
+
+Starting on vertex for BFS is 25872948.  Runs left: 51
+
+Starting on vertex for BFS is 51422519.  Runs left: 50
+
+Starting on vertex for BFS is 35051396.  Runs left: 49
+
+Starting on vertex for BFS is 7125984.  Runs left: 48
+
+Starting on vertex for BFS is 65593872.  Runs left: 47
+
+Starting on vertex for BFS is 27289381.  Runs left: 46
+
+Starting on vertex for BFS is 60147470.  Runs left: 45
+
+Starting on vertex for BFS is 26591561.  Runs left: 44
+
+Starting on vertex for BFS is 49196970.  Runs left: 43
+
+Starting on vertex for BFS is 15321079.  Runs left: 42
+
+Starting on vertex for BFS is 4903868.  Runs left: 41
+
+Starting on vertex for BFS is 4908814.  Runs left: 40
+
+Starting on vertex for BFS is 41347345.  Runs left: 39
+
+Starting on vertex for BFS is 26356206.  Runs left: 38
+
+Starting on vertex for BFS is 55061606.  Runs left: 37
+
+Starting on vertex for BFS is 66156467.  Runs left: 36
+
+Starting on vertex for BFS is 64930702.  Runs left: 35
+
+Starting on vertex for BFS is 45639204.  Runs left: 34
+
+Starting on vertex for BFS is 40124410.  Runs left: 33
+
+Starting on vertex for BFS is 198744.  Runs left: 32
+
+Starting on vertex for BFS is 69457.  Runs left: 31
+
+Starting on vertex for BFS is 60770788.  Runs left: 30
+
+Starting on vertex for BFS is 60397548.  Runs left: 29
+
+Starting on vertex for BFS is 20615623.  Runs left: 28
+
+Starting on vertex for BFS is 718106.  Runs left: 27
+
+Starting on vertex for BFS is 4180295.  Runs left: 26
+
+Starting on vertex for BFS is 21005023.  Runs left: 25
+
+Starting on vertex for BFS is 36722558.  Runs left: 24
+
+Starting on vertex for BFS is 6001539.  Runs left: 23
+
+Starting on vertex for BFS is 10327848.  Runs left: 22
+
+Starting on vertex for BFS is 24413615.  Runs left: 21
+
+Starting on vertex for BFS is 5868239.  Runs left: 20
+
+Starting on vertex for BFS is 32172352.  Runs left: 19
+
+Starting on vertex for BFS is 5012648.  Runs left: 18
+
+Starting on vertex for BFS is 31931490.  Runs left: 17
+
+Starting on vertex for BFS is 40356668.  Runs left: 16
+
+Starting on vertex for BFS is 63478068.  Runs left: 15
+
+Starting on vertex for BFS is 30644362.  Runs left: 14
+
+Starting on vertex for BFS is 9923588.  Runs left: 13
+
+Starting on vertex for BFS is 44979671.  Runs left: 12
+
+Starting on vertex for BFS is 55768589.  Runs left: 11
+
+Starting on vertex for BFS is 1231582.  Runs left: 10
+
+Starting on vertex for BFS is 59628828.  Runs left: 9
+
+Starting on vertex for BFS is 3954471.  Runs left: 8
+
+Starting on vertex for BFS is 50532570.  Runs left: 7
+
+Starting on vertex for BFS is 60298724.  Runs left: 6
+
+Starting on vertex for BFS is 27662023.  Runs left: 5
+
+Starting on vertex for BFS is 6272210.  Runs left: 4
+
+Starting on vertex for BFS is 18585087.  Runs left: 3
+
+Starting on vertex for BFS is 33292113.  Runs left: 2
+
+Starting on vertex for BFS is 28270522.  Runs left: 1
+
+Starting on vertex for BFS is 15477544.  Runs left: 0
+
+SCALE:			26
+edgefactor:		16
+NBFS:			64
+
+construction_time:	8.10384640000000000e+07us
+
+min_time:		1.75544230000000000e+07us
+firstquartile_time:	1.75830920000000000e+07us
+median_time:		1.76162025000000000e+07us
+lastquartile_time:	1.76431775000000000e+07us
+max_time:		1.82889140000000000e+07us
+mean_time:		1.76253703593750000e+07us
+
+min_nedges:		1.07374182400000000e+09
+firstquartile_nedges:	1.07374182400000000e+09
+median_nedges:		1.07374182400000000e+09
+lastquartile_nedges:	1.07374182400000000e+09
+max_nedges:		1.07374182400000000e+09
+mean_nedges:		1.07374182400000000e+09
+
+min_TEPS:		5.87099826703761667e+07TEPS
+firstquartile_TEPS:	6.08587563572206497e+07TEPS
+median_TEPS:		6.09519458649718761e+07TEPS
+lastquartile_TEPS:	6.10667234838191941e+07TEPS
+max_TEPS:		6.11664540000000000e+07TEPS
+mean_TEPS:		6.09218245382609293e+07TEPS
+Generating edgelist with scale 26 and edgefactor 16 
+Finished generating 1073741824 edges
+Generating Graph
+
+Graph has 67107604 vertices and 1073741824 edges.
+firstnbr = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ...
+nbr = 25426864 26005706 54672247 1824312 39487502 51443863 59926702 6221417 5198362 12690133 51187778 4285012 37801762 37801762 30927549 54672247 33506531 48490717 26347623 60021531 37094210 1457495 15713537 35813299 57971979 58383436 15646135 4996206 59292981 54393855 35760722 32948301 7523706 40659224 50344605 50325529 42873509 56116278 42532785 6989228 10154921 48877082 10059114 56116642 13337445 13329139 45701450 40356864 13974624 23465227 ...
+
+Starting on vertex for BFS is 13019407.  Runs left: 63
+
+Starting on vertex for BFS is 14249954.  Runs left: 62
+
+Starting on vertex for BFS is 17304149.  Runs left: 61
+
+Starting on vertex for BFS is 51685616.  Runs left: 60
+
+Starting on vertex for BFS is 17375486.  Runs left: 59
+
+Starting on vertex for BFS is 9210506.  Runs left: 58
+
+Starting on vertex for BFS is 57610735.  Runs left: 57
+
+Starting on vertex for BFS is 64028566.  Runs left: 56
+
+Starting on vertex for BFS is 1370543.  Runs left: 55
+
+Starting on vertex for BFS is 29907335.  Runs left: 54
+
+Starting on vertex for BFS is 49312450.  Runs left: 53
+
+Starting on vertex for BFS is 5353292.  Runs left: 52
+
+Starting on vertex for BFS is 41969324.  Runs left: 51
+
+Starting on vertex for BFS is 58649142.  Runs left: 50
+
+Starting on vertex for BFS is 9773748.  Runs left: 49
+
+Starting on vertex for BFS is 4955746.  Runs left: 48
+
+Starting on vertex for BFS is 3939949.  Runs left: 47
+
+Starting on vertex for BFS is 56521245.  Runs left: 46
+
+Starting on vertex for BFS is 53624985.  Runs left: 45
+
+Starting on vertex for BFS is 52204816.  Runs left: 44
+
+Starting on vertex for BFS is 21448014.  Runs left: 43
+
+Starting on vertex for BFS is 33764734.  Runs left: 42
+
+Starting on vertex for BFS is 54986676.  Runs left: 41
+
+Starting on vertex for BFS is 21656913.  Runs left: 40
+
+Starting on vertex for BFS is 10498183.  Runs left: 39
+
+Starting on vertex for BFS is 38384095.  Runs left: 38
+
+Starting on vertex for BFS is 28359984.  Runs left: 37
+
+Starting on vertex for BFS is 26457031.  Runs left: 36
+
+Starting on vertex for BFS is 50505847.  Runs left: 35
+
+Starting on vertex for BFS is 57243900.  Runs left: 34
+
+Starting on vertex for BFS is 1169391.  Runs left: 33
+
+Starting on vertex for BFS is 18424045.  Runs left: 32
+
+Starting on vertex for BFS is 55541967.  Runs left: 31
+
+Starting on vertex for BFS is 14379519.  Runs left: 30
+
+Starting on vertex for BFS is 43429277.  Runs left: 29
+
+Starting on vertex for BFS is 6955407.  Runs left: 28
+
+Starting on vertex for BFS is 44324909.  Runs left: 27
+
+Starting on vertex for BFS is 62081431.  Runs left: 26
+
+Starting on vertex for BFS is 66477874.  Runs left: 25
+
+Starting on vertex for BFS is 52720676.  Runs left: 24
+
+Starting on vertex for BFS is 60886817.  Runs left: 23
+
+Starting on vertex for BFS is 26493107.  Runs left: 22
+
+Starting on vertex for BFS is 62951563.  Runs left: 21
+
+Starting on vertex for BFS is 66367902.  Runs left: 20
+
+Starting on vertex for BFS is 60856657.  Runs left: 19
+
+Starting on vertex for BFS is 32244952.  Runs left: 18
+
+Starting on vertex for BFS is 32228910.  Runs left: 17
+
+Starting on vertex for BFS is 56032837.  Runs left: 16
+
+Starting on vertex for BFS is 10566765.  Runs left: 15
+
+Starting on vertex for BFS is 50011938.  Runs left: 14
+
+Starting on vertex for BFS is 38835322.  Runs left: 13
+
+Starting on vertex for BFS is 13720094.  Runs left: 12
+
+Starting on vertex for BFS is 26197481.  Runs left: 11
+
+Starting on vertex for BFS is 10448982.  Runs left: 10
+
+Starting on vertex for BFS is 53653931.  Runs left: 9
+
+Starting on vertex for BFS is 35743460.  Runs left: 8
+
+Starting on vertex for BFS is 2659933.  Runs left: 7
+
+Starting on vertex for BFS is 63828647.  Runs left: 6
+
+Starting on vertex for BFS is 62604555.  Runs left: 5
+
+Starting on vertex for BFS is 15958979.  Runs left: 4
+
+Starting on vertex for BFS is 3500100.  Runs left: 3
+
+Starting on vertex for BFS is 33522692.  Runs left: 2
+
+Starting on vertex for BFS is 47434625.  Runs left: 1
+
+Starting on vertex for BFS is 64699406.  Runs left: 0
+
+SCALE:			26
+edgefactor:		16
+NBFS:			64
+
+construction_time:	8.10984240000000000e+07us
+
+min_time:		9.21183600000000000e+06us
+firstquartile_time:	9.26480950000000000e+06us
+median_time:		9.31202400000000000e+06us
+lastquartile_time:	9.39668650000000000e+06us
+max_time:		9.69452400000000000e+06us
+mean_time:		9.34738787500000000e+06us
+
+min_nedges:		1.07374182400000000e+09
+firstquartile_nedges:	1.07374182400000000e+09
+median_nedges:		1.07374182400000000e+09
+lastquartile_nedges:	1.07391086000000000e+09
+max_nedges:		1.07567196600000000e+09
+mean_nedges:		1.07395025123437500e+09
+
+min_TEPS:		1.10757560000000000e+08TEPS
+firstquartile_TEPS:	1.14270804528927371e+08TEPS
+median_TEPS:		1.15350997500000000e+08TEPS
+lastquartile_TEPS:	1.15899344500000000e+08TEPS
+max_TEPS:		1.16603651000000000e+08TEPS
+mean_TEPS:		1.14908400365907043e+08TEPS
+Generating edgelist with scale 26 and edgefactor 16 
+Finished generating 1073741824 edges
+Generating Graph
+
+Graph has 67108670 vertices and 1073741824 edges.
+firstnbr = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ...
+nbr = 36731492 62548664 38606938 24657197 19505107 18287709 16790305 18525295 10851444 52372386 26994436 32940948 40972521 42362876 22223688 9064127 65442280 8049332 38577455 18525295 38140865 6648101 58954610 60287039 13516010 63502940 4979766 41594816 50839890 14401429 65877944 12842380 7092621 29797717 61409985 32011749 2629858 50198886 60822472 17696673 36648124 51478697 57498902 54346848 26055647 29955538 62029145 15848751 29062426 53712832 ...
+
+Starting on vertex for BFS is 2303422.  Runs left: 63
+
+Starting on vertex for BFS is 41230624.  Runs left: 62
+
+Starting on vertex for BFS is 30342328.  Runs left: 61
+
+Starting on vertex for BFS is 22550422.  Runs left: 60
+
+Starting on vertex for BFS is 252874.  Runs left: 59
+
+Starting on vertex for BFS is 23013251.  Runs left: 58
+
+Starting on vertex for BFS is 45217859.  Runs left: 57
+
+Starting on vertex for BFS is 38027409.  Runs left: 56
+
+Starting on vertex for BFS is 29590912.  Runs left: 55
+
+Starting on vertex for BFS is 4620346.  Runs left: 54
+
+Starting on vertex for BFS is 732867.  Runs left: 53
+
+Starting on vertex for BFS is 60912405.  Runs left: 52
+
+Starting on vertex for BFS is 63904244.  Runs left: 51
+
+Starting on vertex for BFS is 42013258.  Runs left: 50
+
+Starting on vertex for BFS is 8724598.  Runs left: 49
+
+Starting on vertex for BFS is 57040716.  Runs left: 48
+
+Starting on vertex for BFS is 30099238.  Runs left: 47
+
+Starting on vertex for BFS is 44418132.  Runs left: 46
+
+Starting on vertex for BFS is 31550361.  Runs left: 45
+
+Starting on vertex for BFS is 29137518.  Runs left: 44
+
+Starting on vertex for BFS is 32804306.  Runs left: 43
+
+Starting on vertex for BFS is 32088353.  Runs left: 42
+
+Starting on vertex for BFS is 66456423.  Runs left: 41
+
+Starting on vertex for BFS is 5375384.  Runs left: 40
+
+Starting on vertex for BFS is 35611800.  Runs left: 39
+
+Starting on vertex for BFS is 45783635.  Runs left: 38
+
+Starting on vertex for BFS is 53909832.  Runs left: 37
+
+Starting on vertex for BFS is 65468903.  Runs left: 36
+
+Starting on vertex for BFS is 48139622.  Runs left: 35
+
+Starting on vertex for BFS is 43906257.  Runs left: 34
+
+Starting on vertex for BFS is 10446858.  Runs left: 33
+
+Starting on vertex for BFS is 12046241.  Runs left: 32
+
+Starting on vertex for BFS is 21092995.  Runs left: 31
+
+Starting on vertex for BFS is 64056916.  Runs left: 30
+
+Starting on vertex for BFS is 40147895.  Runs left: 29
+
+Starting on vertex for BFS is 23972962.  Runs left: 28
+
+Starting on vertex for BFS is 13757250.  Runs left: 27
+
+Starting on vertex for BFS is 50387888.  Runs left: 26
+
+Starting on vertex for BFS is 6667490.  Runs left: 25
+
+Starting on vertex for BFS is 40108544.  Runs left: 24
+
+Starting on vertex for BFS is 62086736.  Runs left: 23
+
+Starting on vertex for BFS is 54780037.  Runs left: 22
+
+Starting on vertex for BFS is 17696673.  Runs left: 21
+
+Starting on vertex for BFS is 31060231.  Runs left: 20
+
+Starting on vertex for BFS is 33298361.  Runs left: 19
+
+Starting on vertex for BFS is 10162815.  Runs left: 18
+
+Starting on vertex for BFS is 39611406.  Runs left: 17
+
+Starting on vertex for BFS is 44831342.  Runs left: 16
+
+Starting on vertex for BFS is 25881432.  Runs left: 15
+
+Starting on vertex for BFS is 65357.  Runs left: 14
+
+Starting on vertex for BFS is 40678151.  Runs left: 13
+
+Starting on vertex for BFS is 13895195.  Runs left: 12
+
+Starting on vertex for BFS is 26156103.  Runs left: 11
+
+Starting on vertex for BFS is 3628849.  Runs left: 10
+
+Starting on vertex for BFS is 7833487.  Runs left: 9
+
+Starting on vertex for BFS is 58669796.  Runs left: 8
+
+Starting on vertex for BFS is 29955538.  Runs left: 7
+
+Starting on vertex for BFS is 2328757.  Runs left: 6
+
+Starting on vertex for BFS is 23541144.  Runs left: 5
+
+Starting on vertex for BFS is 18440144.  Runs left: 4
+
+Starting on vertex for BFS is 47906552.  Runs left: 3
+
+Starting on vertex for BFS is 51002751.  Runs left: 2
+
+Starting on vertex for BFS is 4882677.  Runs left: 1
+
+Starting on vertex for BFS is 39091981.  Runs left: 0
+
+SCALE:			26
+edgefactor:		16
+NBFS:			64
+
+construction_time:	8.11283630000000000e+07us
+
+min_time:		6.37411800000000000e+06us
+firstquartile_time:	6.46412600000000000e+06us
+median_time:		6.52032500000000000e+06us
+lastquartile_time:	6.57790250000000000e+06us
+max_time:		6.78552800000000000e+06us
+mean_time:		6.53110968750000000e+06us
+
+min_nedges:		1.07374182400000000e+09
+firstquartile_nedges:	1.07374182400000000e+09
+median_nedges:		1.07375179250000000e+09
+lastquartile_nedges:	1.07425368350000000e+09
+max_nedges:		1.10719815300000000e+09
+mean_nedges:		1.07463406760937500e+09
+
+min_TEPS:		1.58315428364601851e+08TEPS
+firstquartile_TEPS:	1.63355699686358750e+08TEPS
+median_TEPS:		1.64764185901446223e+08TEPS
+lastquartile_TEPS:	1.66146068688486546e+08TEPS
+max_TEPS:		1.68453396000000000e+08TEPS
+mean_TEPS:		1.64566561919926107e+08TEPS
+Generating edgelist with scale 26 and edgefactor 16 
+Finished generating 1073741824 edges
+Generating Graph
+
+Graph has 67108165 vertices and 1073741824 edges.
+firstnbr = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ...
+nbr = 53994514 35120672 17120821 18098614 16551071 64069960 66272947 13611937 13386887 60117788 49504006 44536089 55884304 17244258 51589451 65470931 49335438 18297557 28722166 64706327 48848400 5284155 3643767 3373454 52733440 42533443 33378330 33451824 18452194 61396697 28844241 32960254 35813920 47699801 1482908 28636451 36854020 18297557 42753245 34857330 29491948 62193094 17623713 41826959 53498089 44396855 51915609 66125047 55012926 44766929 ...
+
+Starting on vertex for BFS is 61873625.  Runs left: 63
+
+Starting on vertex for BFS is 19030904.  Runs left: 62
+
+Starting on vertex for BFS is 38864903.  Runs left: 61
+
+Starting on vertex for BFS is 31950205.  Runs left: 60
+
+Starting on vertex for BFS is 19444458.  Runs left: 59
+
+Starting on vertex for BFS is 19934439.  Runs left: 58
+
+Starting on vertex for BFS is 48624582.  Runs left: 57
+
+Starting on vertex for BFS is 9706674.  Runs left: 56
+
+Starting on vertex for BFS is 39388701.  Runs left: 55
+
+Starting on vertex for BFS is 47728136.  Runs left: 54
+
+Starting on vertex for BFS is 37885111.  Runs left: 53
+
+Starting on vertex for BFS is 5042149.  Runs left: 52
+
+Starting on vertex for BFS is 39664358.  Runs left: 51
+
+Starting on vertex for BFS is 48444237.  Runs left: 50
+
+Starting on vertex for BFS is 54720318.  Runs left: 49
+
+Starting on vertex for BFS is 43661935.  Runs left: 48
+
+Starting on vertex for BFS is 26985238.  Runs left: 47
+
+Starting on vertex for BFS is 55175802.  Runs left: 46
+
+Starting on vertex for BFS is 3455502.  Runs left: 45
+
+Starting on vertex for BFS is 66862996.  Runs left: 44
+
+Starting on vertex for BFS is 50640325.  Runs left: 43
+
+Starting on vertex for BFS is 16566539.  Runs left: 42
+
+Starting on vertex for BFS is 15210696.  Runs left: 41
+
+Starting on vertex for BFS is 61364141.  Runs left: 40
+
+Starting on vertex for BFS is 43625992.  Runs left: 39
+
+Starting on vertex for BFS is 29491948.  Runs left: 38
+
+Starting on vertex for BFS is 7578819.  Runs left: 37
+
+Starting on vertex for BFS is 50318236.  Runs left: 36
+
+Starting on vertex for BFS is 37910580.  Runs left: 35
+
+Starting on vertex for BFS is 5076962.  Runs left: 34
+
+Starting on vertex for BFS is 7714137.  Runs left: 33
+
+Starting on vertex for BFS is 27866401.  Runs left: 32
+
+Starting on vertex for BFS is 52513813.  Runs left: 31
+
+Starting on vertex for BFS is 32507967.  Runs left: 30
+
+Starting on vertex for BFS is 63217848.  Runs left: 29
+
+Starting on vertex for BFS is 58681565.  Runs left: 28
+
+Starting on vertex for BFS is 59570780.  Runs left: 27
+
+Starting on vertex for BFS is 27831446.  Runs left: 26
+
+Starting on vertex for BFS is 30708461.  Runs left: 25
+
+Starting on vertex for BFS is 50313073.  Runs left: 24
+
+Starting on vertex for BFS is 51447450.  Runs left: 23
+
+Starting on vertex for BFS is 53226807.  Runs left: 22
+
+Starting on vertex for BFS is 5562638.  Runs left: 21
+
+Starting on vertex for BFS is 24109745.  Runs left: 20
+
+Starting on vertex for BFS is 49394019.  Runs left: 19
+
+Starting on vertex for BFS is 62215629.  Runs left: 18
+
+Starting on vertex for BFS is 8523368.  Runs left: 17
+
+Starting on vertex for BFS is 67009275.  Runs left: 16
+
+Starting on vertex for BFS is 6759703.  Runs left: 15
+
+Starting on vertex for BFS is 616015.  Runs left: 14
+
+Starting on vertex for BFS is 18791328.  Runs left: 13
+
+Starting on vertex for BFS is 1137318.  Runs left: 12
+
+Starting on vertex for BFS is 42739723.  Runs left: 11
+
+Starting on vertex for BFS is 47444295.  Runs left: 10
+
+Starting on vertex for BFS is 36601279.  Runs left: 9
+
+Starting on vertex for BFS is 21806262.  Runs left: 8
+
+Starting on vertex for BFS is 20602329.  Runs left: 7
+
+Starting on vertex for BFS is 3572968.  Runs left: 6
+
+Starting on vertex for BFS is 7111287.  Runs left: 5
+
+Starting on vertex for BFS is 19067421.  Runs left: 4
+
+Starting on vertex for BFS is 60117788.  Runs left: 3
+
+Starting on vertex for BFS is 62381830.  Runs left: 2
+
+Starting on vertex for BFS is 40534423.  Runs left: 1
+
+Starting on vertex for BFS is 49300899.  Runs left: 0
+
+SCALE:			26
+edgefactor:		16
+NBFS:			64
+
+construction_time:	8.23441500000000000e+07us
+
+min_time:		4.95134400000000000e+06us
+firstquartile_time:	5.05414450000000000e+06us
+median_time:		5.12486550000000000e+06us
+lastquartile_time:	5.20447000000000000e+06us
+max_time:		5.50979300000000000e+06us
+mean_time:		5.13492535937500000e+06us
+
+min_nedges:		1.07374182400000000e+09
+firstquartile_nedges:	1.07381033450000000e+09
+median_nedges:		1.07408169550000000e+09
+lastquartile_nedges:	1.07441995000000000e+09
+max_nedges:		1.07953695500000000e+09
+mean_nedges:		1.07432996526562500e+09
+
+min_TEPS:		1.95003718832994282e+08TEPS
+firstquartile_TEPS:	2.06440283955966413e+08TEPS
+median_TEPS:		2.09841919712900698e+08TEPS
+lastquartile_TEPS:	2.12649083785434812e+08TEPS
+max_TEPS:		2.16858659000000000e+08TEPS
+mean_TEPS:		2.09326075570920467e+08TEPS
+Generating edgelist with scale 26 and edgefactor 16 
+Finished generating 1073741824 edges
+Generating Graph
+
+Graph has 67108518 vertices and 1073741824 edges.
+firstnbr = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ...
+nbr = 3467641 35788083 2381547 57670603 17013321 21741713 52226304 24929096 48374944 46735330 36939184 49853319 30352636 35163634 28266881 15076166 26801017 50763759 28778219 13899689 2255001 43800418 1528467 57670603 59249676 47490553 53594682 1422647 33704374 6190082 44170315 59532458 7752871 37918997 39830750 8427330 59969842 41547414 6190806 42672529 53080283 56944915 22788483 63473005 58758905 17013321 15487158 9533945 28778219 53496122 ...
+
+Starting on vertex for BFS is 15122527.  Runs left: 63
+
+Starting on vertex for BFS is 42105802.  Runs left: 62
+
+Starting on vertex for BFS is 12656705.  Runs left: 61
+
+Starting on vertex for BFS is 40928882.  Runs left: 60
+
+Starting on vertex for BFS is 5028370.  Runs left: 59
+
+Starting on vertex for BFS is 36917131.  Runs left: 58
+
+Starting on vertex for BFS is 25326860.  Runs left: 57
+
+Starting on vertex for BFS is 31000890.  Runs left: 56
+
+Starting on vertex for BFS is 3526728.  Runs left: 55
+
+Starting on vertex for BFS is 39238406.  Runs left: 54
+
+Starting on vertex for BFS is 37866690.  Runs left: 53
+
+Starting on vertex for BFS is 16062290.  Runs left: 52
+
+Starting on vertex for BFS is 49775325.  Runs left: 51
+
+Starting on vertex for BFS is 29253203.  Runs left: 50
+
+Starting on vertex for BFS is 50913404.  Runs left: 49
+
+Starting on vertex for BFS is 47182791.  Runs left: 48
+
+Starting on vertex for BFS is 34036821.  Runs left: 47
+
+Starting on vertex for BFS is 211987.  Runs left: 46
+
+Starting on vertex for BFS is 15773018.  Runs left: 45
+
+Starting on vertex for BFS is 22271894.  Runs left: 44
+
+Starting on vertex for BFS is 44595909.  Runs left: 43
+
+Starting on vertex for BFS is 22271894.  Runs left: 42
+
+Starting on vertex for BFS is 38357020.  Runs left: 41
+
+Starting on vertex for BFS is 31819879.  Runs left: 40
+
+Starting on vertex for BFS is 63479455.  Runs left: 39
+
+Starting on vertex for BFS is 16977290.  Runs left: 38
+
+Starting on vertex for BFS is 29626878.  Runs left: 37
+
+Starting on vertex for BFS is 56092105.  Runs left: 36
+
+Starting on vertex for BFS is 41243131.  Runs left: 35
+
+Starting on vertex for BFS is 42253447.  Runs left: 34
+
+Starting on vertex for BFS is 14537428.  Runs left: 33
+
+Starting on vertex for BFS is 54208687.  Runs left: 32
+
+Starting on vertex for BFS is 3882459.  Runs left: 31
+
+Starting on vertex for BFS is 55799450.  Runs left: 30
+
+Starting on vertex for BFS is 44227324.  Runs left: 29
+
+Starting on vertex for BFS is 40975800.  Runs left: 28
+
+Starting on vertex for BFS is 52701495.  Runs left: 27
+
+Starting on vertex for BFS is 44927415.  Runs left: 26
+
+Starting on vertex for BFS is 51792962.  Runs left: 25
+
+Starting on vertex for BFS is 42018728.  Runs left: 24
+
+Starting on vertex for BFS is 7641035.  Runs left: 23
+
+Starting on vertex for BFS is 41937325.  Runs left: 22
+
+Starting on vertex for BFS is 65522169.  Runs left: 21
+
+Starting on vertex for BFS is 14294684.  Runs left: 20
+
+Starting on vertex for BFS is 65167360.  Runs left: 19
+
+Starting on vertex for BFS is 46906549.  Runs left: 18
+
+Starting on vertex for BFS is 34883518.  Runs left: 17
+
+Starting on vertex for BFS is 15388642.  Runs left: 16
+
+Starting on vertex for BFS is 51685983.  Runs left: 15
+
+Starting on vertex for BFS is 12122328.  Runs left: 14
+
+Starting on vertex for BFS is 44494988.  Runs left: 13
+
+Starting on vertex for BFS is 34279522.  Runs left: 12
+
+Starting on vertex for BFS is 64403618.  Runs left: 11
+
+Starting on vertex for BFS is 27404077.  Runs left: 10
+
+Starting on vertex for BFS is 64020414.  Runs left: 9
+
+Starting on vertex for BFS is 45655580.  Runs left: 8
+
+Starting on vertex for BFS is 2506843.  Runs left: 7
+
+Starting on vertex for BFS is 47683209.  Runs left: 6
+
+Starting on vertex for BFS is 8382612.  Runs left: 5
+
+Starting on vertex for BFS is 7892003.  Runs left: 4
+
+Starting on vertex for BFS is 55410842.  Runs left: 3
+
+Starting on vertex for BFS is 23296241.  Runs left: 2
+
+Starting on vertex for BFS is 22753773.  Runs left: 1
+
+Starting on vertex for BFS is 39894302.  Runs left: 0
+
+SCALE:			26
+edgefactor:		16
+NBFS:			64
+
+construction_time:	8.11761000000000000e+07us
+
+min_time:		4.12352500000000000e+06us
+firstquartile_time:	4.25805450000000000e+06us
+median_time:		4.34570500000000000e+06us
+lastquartile_time:	4.50686500000000000e+06us
+max_time:		5.09837400000000000e+06us
+mean_time:		4.39864496875000000e+06us
+
+min_nedges:		1.07374182400000000e+09
+firstquartile_nedges:	1.07384089650000000e+09
+median_nedges:		1.07414404650000000e+09
+lastquartile_nedges:	1.07506873350000000e+09
+max_nedges:		1.08339028400000000e+09
+mean_nedges:		1.07493126589062500e+09
+
+min_TEPS:		2.10604758000000000e+08TEPS
+firstquartile_TEPS:	2.38342009420016110e+08TEPS
+median_TEPS:		2.47345624000000000e+08TEPS
+lastquartile_TEPS:	2.52466352730036765e+08TEPS
+max_TEPS:		2.60408820000000000e+08TEPS
+mean_TEPS:		2.44838104630734295e+08TEPS
