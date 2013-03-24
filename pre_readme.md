@@ -125,13 +125,58 @@ No Reducers.
 
 `make`
 
+This will provide you with two binaries. 'bfs' and 'bfs500' 
+
 ## Results
+Performance for graph search is mesured in Traversed Edges Per Second (TEPS)
 
+### Teps vs Proccessor Count ###
+This graph shows how TEPS scale as the number of cores is increased from 1 to 8 on the search. The values comes from an average of 64 runs.
+// insert picture nproc_mean_teps.png
+As we can se TEPS increases almost linear as the number of processors increas
 
+Here we look at the time it takes to generate the graph from the edgelist.
+//insert picture nproc_const.png
+We can clearly see that the graph generation algorith is not parallelized and has no performace gain from increasing the number of processors.
+
+### Tesp vs Scale ###
+
+//insert scale_mean_teps.png
+We can se that the performace increases as the problem size increases except for a slight decrease for the two largest problem sizes. But that can also be because timing is inaqurate for small problem sizes. Unfortunetly we did not have time to run tests on multiple nodes. But we expect that performace would decrease due to reduced memory performance when running on multiple nodes.
+
+### Teps vs Scale and Proccessor Count ###
+In this graph we look at how TEPS change as both problem size and number of processors double for each datapoint. Scale ranges from 21 to 24 and proccessors from 1 to 8.
+//insert scale_nproc_teps.png
+
+### Example Output ###
+This is a example output for run with scale 26, edgefactor 26 on a single core on Triton.
+
+	construction_time:	8.10384640000000000e+07us
+
+	min_time:		1.75544230000000000e+07us
+	firstquartile_time:	1.75830920000000000e+07us
+	median_time:		1.76162025000000000e+07us
+	lastquartile_time:	1.76431775000000000e+07us
+	max_time:		1.82889140000000000e+07us
+	mean_time:		1.76253703593750000e+07us
+
+	min_nedges:		1.07374182400000000e+09
+	firstquartile_nedges:	1.07374182400000000e+09
+	median_nedges:		1.07374182400000000e+09
+	lastquartile_nedges:	1.07374182400000000e+09
+	max_nedges:		1.07374182400000000e+09
+	mean_nedges:		1.07374182400000000e+09
+
+	min_TEPS:		5.87099826703761667e+07TEPS
+	firstquartile_TEPS:	6.08587563572206497e+07TEPS
+	median_TEPS:		6.09519458649718761e+07TEPS
+	lastquartile_TEPS:	6.10667234838191941e+07TEPS
+	max_TEPS:		6.11664540000000000e+07TEPS
+	mean_TEPS:		6.09218245382609293e+07TEPS
 
 
 ## Problems
-  * We had a lot of problems when we tried tp take the time of the graph search and since all the search was sub-second, it was hard to get an accurate timer. 
+  * We had a lot of problems when we tried to take the time of the graph search and since all the searches was sub-second, it was hard to get an accurate time. 
 	Timing 
 
 
@@ -141,7 +186,7 @@ No Reducers.
 
 
 ## Future Work
-
+	Our current code does not verify that the result from the bfs search is correct. Since the graph problems is very large searching the graph to get an guaranteed verification. The suggested way to verify the graph search is to 
 
 
 
