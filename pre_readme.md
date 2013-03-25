@@ -125,11 +125,13 @@ This graph shows how TEPS scale as the number of cores is increased from 1 to 8 
 As we can se TEPS increases almost linear as the number of processors increas
 
 Here we look at the time it takes to generate the graph from the edgelist.
+
 ![Nproc const](https://raw.github.com/vegaen/cilk-bfs/master/img/nproc_const.png "Nproc const")
+
 We can clearly see that the graph generation algorith is not parallelized and has no performace gain from increasing the number of processors.
 
 ### Teps vs Scale ###
-![Scale mean teps](https://raw.github.com/vegaen/cilk-bfs/master/img/scale_mean_teps.png "Scale mean teps")
+![Scale mean teps](https://raw.github.com/vegaen/cilk-bfs/master/img/scale_mean.png "Scale mean teps")
 
 We can se that the performace increases as the problem size increases except for a slight decrease for the two largest problem sizes. But that can also be because timing is inaqurate for small problem sizes. Unfortunetly we did not have time to run tests on multiple nodes. But we expect that performace would decrease due to reduced memory performance when running on multiple nodes.
 
