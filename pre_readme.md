@@ -42,8 +42,6 @@ A high order approach to the problem is to split the queue between the processor
 
 
 
-?? ADD BFS EXPLAINATION IMAGES ??  
-
 
 ## Graph500 ##
 Graph500 is a rating of supercomputer system, with focus on Data intensive loads. Instead of counting double precision floating-point as the benchmark, Graph500 are using a breadth-first search as the benchmark. In the benchmark it is two computation kernels. The first kernel computes the time it takes to generate the graph and compress it into sparse structures CSR or CSC (Compressed Sparse Row/Column). The second kernel does a parallel BFS of 64 random vertecies per run.
@@ -121,21 +119,23 @@ Performance for graph search is mesured in Traversed Edges Per Second (TEPS)
 
 ### Teps vs Proccessor Count ###
 This graph shows how TEPS scale as the number of cores is increased from 1 to 8 on the search. The values comes from an average of 64 runs.
-// insert picture img/nproc_mean_teps.png
+
+![Nproc mean teps](https://raw.github.com/vegaen/cilk-bfs/master/img/nproc_mean_teps.png "Nproc mean teps")
+
 As we can se TEPS increases almost linear as the number of processors increas
 
 Here we look at the time it takes to generate the graph from the edgelist.
-//insert picture img/nproc_const.png
+![Nproc const](https://raw.github.com/vegaen/cilk-bfs/master/img/nproc_const.png "Nproc const")
 We can clearly see that the graph generation algorith is not parallelized and has no performace gain from increasing the number of processors.
 
 ### Teps vs Scale ###
+![Scale mean teps](https://raw.github.com/vegaen/cilk-bfs/master/img/scale_mean_teps.png "Scale mean teps")
 
-//insert img/scale_mean_teps.png
 We can se that the performace increases as the problem size increases except for a slight decrease for the two largest problem sizes. But that can also be because timing is inaqurate for small problem sizes. Unfortunetly we did not have time to run tests on multiple nodes. But we expect that performace would decrease due to reduced memory performance when running on multiple nodes.
 
 ### Teps vs Scale and Proccessor Count ###
 In this graph we look at how TEPS change as both problem size and number of processors double for each datapoint. Scale ranges from 21 to 24 and proccessors from 1 to 8.
-//insert scale_nproc_teps.png
+![Scale nproc teps](https://raw.github.com/vegaen/cilk-bfs/master/img/scale_nproc_teps.png "Scale nproc teps")
 Since both increasing scale and increasing processor count increases performace this graph shows as expected a better than linear increase in performance.
 
 ### Example Output ###
@@ -148,7 +148,7 @@ This is a example output for run with scale 26, edgefactor 26 on a single core o
 	median_time:		1.76162025000000000e+07us
 	lastquartile_time:	1.76431775000000000e+07us
 	max_time:		1.82889140000000000e+07us
-	mean_time:		1.76253703593750000e+07us
+	mean_time:	.png	1.76253703593750000e+07us
 
 	min_nedges:		1.07374182400000000e+09
 	firstquartile_nedges:	1.07374182400000000e+09
